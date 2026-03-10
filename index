@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Holistence Academy — Anasayfa / Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark:#060D18;
+  --dark2:#0C1830;
+  --navy:#0F2545;
+  --blue:#1A3D6E;
+  --teal:#0D7E8A;
+  --teal-l:#12A8B8;
+  --gold:#C9A84C;
+  --gold-l:#E8C97A;
+  --white:#F8F6F2;
+  --cream:#EEE8DC;
+  --text:#1E3048;
+  --muted:#667a92;
+  --line:rgba(15,37,69,.10);
+  --shadow:0 30px 90px rgba(6,13,24,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Inter",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(201,168,76,.10), transparent 24%),
+    radial-gradient(circle at top right, rgba(18,168,184,.12), transparent 24%),
+    linear-gradient(180deg,#fcfbf8 0%,#f8f6f2 100%);
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:78px;padding:0 42px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(6,13,24,.80);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  transition:box-shadow .25s ease;
+}
+.nav-brand{display:flex;align-items:center;gap:14px}
+.brand-mark{
+  width:42px;height:42px;border-radius:14px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--gold),#f4dfa0);
+  color:var(--dark);font-weight:800;
+  box-shadow:0 8px 24px rgba(201,168,76,.26);
+}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-text strong{font-size:16px;color:#fff;letter-spacing:.08em}
+.brand-text span{
+  margin-top:4px;
+  font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(255,255,255,.68);
+}
+.nav-links{display:flex;list-style:none;gap:8px;align-items:center}
+.nav-links a{
+  padding:12px 16px;border-radius:999px;
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.70);
+  transition:.25s;
+}
+.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.08);color:#fff}
+.nav-right{display:flex;align-items:center;gap:10px}
+.lang-btn,.nav-cta{
+  border:none;border-radius:999px;cursor:pointer;
+}
+.lang-btn{
+  padding:10px 14px;
+  font-size:11px;font-weight:700;
+  color:rgba(255,255,255,.70);
+  background:transparent;
+  border:1px solid rgba(255,255,255,.14);
+}
+.lang-btn.active{background:var(--gold);color:var(--dark);border-color:var(--gold)}
+.nav-cta{
+  padding:12px 18px;
+  background:var(--gold);color:var(--dark);
+  font-size:11px;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+}
+.hero{
+  position:relative;
+  min-height:100vh;
+  padding:138px 42px 72px;
+  background:linear-gradient(135deg,rgba(6,13,24,.96),rgba(12,24,48,.92));
+  overflow:hidden;
+}
+.hero::before,.hero::after{
+  content:'';
+  position:absolute;border-radius:999px;filter:blur(8px);
+}
+.hero::before{
+  width:520px;height:520px;top:-140px;right:-120px;
+  background:radial-gradient(circle, rgba(18,168,184,.30), transparent 60%);
+}
+.hero::after{
+  width:460px;height:460px;left:-100px;bottom:-100px;
+  background:radial-gradient(circle, rgba(201,168,76,.22), transparent 60%);
+}
+.hero-grid{
+  position:relative;z-index:2;
+  max-width:1240px;margin:0 auto;
+  display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 16px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.80);
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+}
+.badge::before{
+  content:'';
+  width:8px;height:8px;border-radius:999px;background:var(--gold-l);
+  box-shadow:0 0 0 8px rgba(232,201,122,.10);
+}
+.hero h1{
+  margin-top:18px;
+  font-family:"DM Serif Display",serif;
+  font-size:clamp(54px,8vw,110px);
+  line-height:.95;
+  color:#fff;
+}
+.hero h1 em{font-style:italic;color:var(--gold-l)}
+.hero p{
+  margin-top:24px;max-width:700px;
+  color:rgba(255,255,255,.78);
+  font-size:18px;line-height:1.8;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.hero-primary,.hero-secondary{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:54px;padding:0 28px;border-radius:999px;
+  font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+}
+.hero-primary{background:var(--gold);color:var(--dark)}
+.hero-secondary{
+  border:1px solid rgba(255,255,255,.14);
+  color:#fff;background:rgba(255,255,255,.05);
+}
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:16px;margin-top:36px;
+}
+.stat{
+  padding:20px;border-radius:22px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.08);
+}
+.stat strong{
+  display:block;
+  font-family:"DM Serif Display",serif;
+  font-size:38px;color:#fff;line-height:1;
+}
+.stat span{
+  display:block;margin-top:8px;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.72);line-height:1.6;
+}
+.hero-panel{
+  position:relative;
+  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:30px;padding:28px;
+  box-shadow:var(--shadow);
+}
+.panel-card{
+  border-radius:24px;padding:24px;
+  background:linear-gradient(180deg, rgba(248,246,242,.98), rgba(248,246,242,.92));
+}
+.panel-card h3{
+  font-family:"DM Serif Display",serif;
+  font-size:30px;color:var(--navy);margin-bottom:14px;
+}
+.panel-card p{font-size:14px;color:#4b5f76;line-height:1.85}
+.feature-list{display:grid;gap:12px;margin-top:20px}
+.feature-item{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:14px 16px;border-radius:18px;
+  background:#fff;border:1px solid rgba(15,37,69,.08);
+}
+.feature-dot{
+  width:11px;height:11px;border-radius:999px;
+  background:linear-gradient(135deg,var(--gold),var(--teal));
+  margin-top:5px;flex-shrink:0;
+}
+.feature-item strong{display:block;color:var(--navy);font-size:14px;margin-bottom:4px}
+.feature-item span{display:block;font-size:13px;color:#62758c;line-height:1.6}
+.section{padding:96px 42px}
+.container{max-width:1240px;margin:0 auto}
+.section-top{margin-bottom:34px}
+.section-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--teal);font-size:11px;font-weight:800;
+  letter-spacing:.22em;text-transform:uppercase;
+}
+.section-tag::before{content:'';width:28px;height:2px;background:var(--teal)}
+.section h2{
+  margin-top:16px;
+  font-family:"DM Serif Display",serif;
+  font-size:clamp(34px,5vw,58px);
+  line-height:1.06;color:var(--navy);
+}
+.section h2 em{font-style:italic;color:var(--teal)}
+.intro-grid,.contact-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;
+  gap:34px;align-items:stretch;
+}
+.text-card,.visual-card,.service-card,.contact-card,.form-card,.partner-card{
+  border-radius:28px;background:#fff;border:1px solid var(--line);
+  box-shadow:0 20px 60px rgba(6,13,24,.08);
+}
+.text-card,.contact-card,.form-card{padding:34px}
+.text-card p,.contact-card p{
+  font-size:15px;line-height:1.9;color:#53677f;
+}
+.text-card p + p{margin-top:18px}
+.visual-card{
+  padding:28px;
+  background:
+    radial-gradient(circle at top right, rgba(18,168,184,.14), transparent 28%),
+    linear-gradient(135deg,#0f2545 0%, #122f58 100%);
+  color:#fff;display:flex;flex-direction:column;justify-content:space-between;
+}
+.visual-card .quote{
+  font-family:"Cormorant Garamond",serif;
+  font-size:34px;line-height:1.35;font-style:italic;
+}
+.visual-card .small{margin-top:18px;color:rgba(255,255,255,.72);font-size:13px;line-height:1.8}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.service-card{
+  padding:28px;
+  background:linear-gradient(180deg,#fff,#fbfaf7);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.service-icon{
+  width:54px;height:54px;border-radius:18px;
+  background:linear-gradient(135deg,rgba(201,168,76,.18),rgba(18,168,184,.16));
+  display:grid;place-items:center;font-size:24px;margin-bottom:18px;
+}
+.service-card h3{
+  font-family:"DM Serif Display",serif;
+  font-size:28px;color:var(--navy);margin-bottom:12px;
+}
+.service-card p{font-size:14px;line-height:1.8;color:#62758c}
+.service-link{
+  display:inline-flex;margin-top:18px;
+  font-size:12px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--teal);
+}
+.partner-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.partner-card{min-height:100px;display:grid;place-items:center;padding:20px}
+.partner-card img{max-height:60px;width:auto;object-fit:contain}
+.contact-card h3,.form-card h3{
+  font-family:"DM Serif Display",serif;
+  font-size:36px;color:var(--navy);margin-bottom:12px;
+}
+.contact-list{display:grid;gap:16px;margin-top:24px}
+.contact-item{
+  padding:16px 18px;border-radius:18px;
+  background:#f8f6f2;border:1px solid rgba(15,37,69,.06);
+}
+.contact-item strong{
+  display:block;color:var(--navy);
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  margin-bottom:6px;
+}
+.cf{display:grid;gap:14px}
+.cf .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cf input,.cf textarea{
+  width:100%;padding:16px 18px;
+  border-radius:16px;border:1px solid rgba(15,37,69,.12);
+  background:#fbfaf8;font-family:"Inter",sans-serif;font-size:14px;outline:none;
+}
+.cf textarea{min-height:148px;resize:vertical}
+.cf input:focus,.cf textarea:focus{border-color:var(--teal)}
+.cf button{
+  min-height:56px;border:none;border-radius:999px;
+  background:linear-gradient(90deg,var(--teal),var(--teal-l));
+  color:#fff;font-size:12px;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;cursor:pointer;
+}
+footer{
+  padding:28px 42px 52px;background:#060d18;color:rgba(255,255,255,.7)
+}
+.footer-inner{
+  max-width:1240px;margin:0 auto;
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;
+}
+[data-lang="en"]{display:none}
+body.lang-en [data-lang="tr"]{display:none !important}
+body.lang-en [data-lang="en"]{display:block !important}
+body.lang-en span[data-lang="en"],
+body.lang-en a [data-lang="en"],
+body.lang-en button [data-lang="en"]{display:inline !important}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .85s ease, transform .85s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media (max-width:1080px){
+  .hero-grid,.intro-grid,.contact-grid{grid-template-columns:1fr}
+  .service-grid,.stats,.partner-row{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media (max-width:720px){
+  nav{padding:0 18px}
+  .hero,.section,footer{padding-left:20px;padding-right:20px}
+  .hero{padding-top:120px}
+  .cf .row,.service-grid,.stats,.partner-row{grid-template-columns:1fr}
+  .nav-cta{display:none}
+  .hero-actions{flex-direction:column;align-items:stretch}
+}
+</style>
+</head>
+<body class="lang-tr">
+<nav id="mainNav">
+  <a href="index.html" class="nav-brand">
+    <span class="brand-mark">H</span>
+    <span class="brand-text">
+      <strong>Holistence Academy</strong>
+      <span>Research · Software · Publishing</span>
+    </span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="index.html" class="active"><span data-lang="tr">Anasayfa</span><span data-lang="en">Home</span></a></li>
+    <li><a href="about.html"><span data-lang="tr">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="hizmetler.html"><span data-lang="tr">Hizmetler</span><span data-lang="en">Services</span></a></li>
+    <li><a href="yazilimlar.html"><span data-lang="tr">Yazılımlar</span><span data-lang="en">Software</span></a></li>
+    <li><a href="etkinlikler.html"><span data-lang="tr">Etkinlikler</span><span data-lang="en">Events</span></a></li>
+    <li><a href="kongreler.html"><span data-lang="tr">Kongreler</span><span data-lang="en">Congresses</span></a></li>
+    <li><a href="galeri.html"><span data-lang="tr">Galeri</span><span data-lang="en">Gallery</span></a></li>
+    <li><a href="iletisim.html"><span data-lang="tr">İletişim</span><span data-lang="en">Contact</span></a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="lang-btn active" data-lang="tr" onclick="setLang('tr')">TR</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <a class="nav-cta" href="#contact"><span data-lang="tr">Bize Ulaşın</span><span data-lang="en">Contact</span></a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="reveal">
+      <span class="badge">
+        <span data-lang="tr">Kurumsal ana sayfa yenilendi</span>
+        <span data-lang="en">Corporate homepage refreshed</span>
+      </span>
+
+      <h1>
+        <span data-lang="tr">Bilimi, yazılımı ve yayıncılığı<br><em>tek ekosistemde</em> buluşturuyoruz.</span>
+        <span data-lang="en">We bring science, software and publishing<br>together in <em>one ecosystem</em>.</span>
+      </h1>
+
+      <p>
+        <span data-lang="tr">Holistence Academy; Ar-Ge, yazılım geliştirme, akademik yayıncılık, kongre yönetimi ve kurumsal danışmanlık alanlarında modern, güvenilir ve uluslararası ölçekte çözümler sunar.</span>
+        <span data-lang="en">Holistence Academy delivers modern, reliable and international solutions in R&amp;D, software development, academic publishing, congress management and institutional consulting.</span>
+      </p>
+
+      <div class="hero-actions">
+        <a class="hero-primary" href="iletisim.html"><span data-lang="tr">Hemen İletişime Geçin</span><span data-lang="en">Get in Touch</span></a>
+        <a class="hero-secondary" href="about.html"><span data-lang="tr">Şirketi Keşfedin</span><span data-lang="en">Discover the Company</span></a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong>10+</strong><span><span data-lang="tr">Akademik dergi</span><span data-lang="en">Academic journals</span></span></div>
+        <div class="stat"><strong>2016</strong><span><span data-lang="tr">Kuruluş yılı</span><span data-lang="en">Founded</span></span></div>
+        <div class="stat"><strong>360°</strong><span><span data-lang="tr">Bütünsel hizmet</span><span data-lang="en">Holistic service</span></span></div>
+        <div class="stat"><strong>Global</strong><span><span data-lang="tr">Uluslararası ağ</span><span data-lang="en">International network</span></span></div>
+      </div>
+    </div>
+
+    <div class="hero-panel reveal">
+      <div class="panel-card">
+        <h3><span data-lang="tr">Kurumsal odak</span><span data-lang="en">Corporate focus</span></h3>
+        <p>
+          <span data-lang="tr">Ana sayfa; daha estetik, canlı ve güven veren bir ilk izlenim oluşturacak şekilde yeniden tasarlandı. Eksik WordPress medya dosyaları yerine güçlü tipografi, hareketli renk alanları ve net kutucuk yapıları kullanıldı.</span>
+          <span data-lang="en">The homepage has been redesigned to create a more aesthetic, lively and trustworthy first impression. Missing WordPress media has been replaced with strong typography, animated color fields and clean card-based layouts.</span>
+        </p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="feature-dot"></span>
+            <div>
+              <strong><span data-lang="tr">İki dilli yapı</span><span data-lang="en">Bilingual structure</span></strong>
+              <span><span data-lang="tr">Tarayıcı diline göre otomatik açılış, TR/EN manuel geçiş.</span><span data-lang="en">Automatic opening by browser language with manual TR/EN switching.</span></span>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-dot"></span>
+            <div>
+              <strong><span data-lang="tr">Formspree entegrasyonu</span><span data-lang="en">Formspree integration</span></strong>
+              <span><span data-lang="tr">Ana sayfa ve iletişim formu doğrudan aynı endpoint'e bağlı.</span><span data-lang="en">Homepage and contact form are connected to the same endpoint.</span></span>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-dot"></span>
+            <div>
+              <strong><span data-lang="tr">Modern kurumsal tasarım</span><span data-lang="en">Modern corporate design</span></strong>
+              <span><span data-lang="tr">Daha temiz kart yapıları, premium görünüm ve dinamik akış.</span><span data-lang="en">Cleaner card structures, premium appearance and dynamic flow.</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-top reveal">
+      <span class="section-tag"><span data-lang="tr">Kurumsal yaklaşım</span><span data-lang="en">Corporate approach</span></span>
+      <h2><span data-lang="tr">Holistence Academy’nin</span><span data-lang="en">The</span> <em><span data-lang="tr">bütünsel yapısı</span><span data-lang="en">holistic structure</span></em></h2>
+    </div>
+
+    <div class="intro-grid">
+      <div class="text-card reveal">
+        <p><span data-lang="tr"><strong>Holistence Academy</strong>, 2016 yılından bu yana Ar-Ge, yazılım, akademik yayıncılık, kongre ve etkinlik yönetimi alanlarında faaliyet göstermektedir. Kurumsal vitrinin ana sayfası olduğu için tasarım dili daha net, daha premium ve daha dinamik hale getirildi.</span><span data-lang="en"><strong>Holistence Academy</strong> has been operating in R&amp;D, software, academic publishing, congress and event management since 2016. Because this is the corporate homepage, the design language has been made clearer, more premium and more dynamic.</span></p>
+
+        <p><span data-lang="tr">Sayfanın ilk bölümünde güçlü bir mesaj, belirgin çağrı butonları ve şirketin uzmanlık alanlarını öne çıkaran istatistikler kullanıldı. Böylece ziyaretçi, ilk ekranda şirket kimliğini ve faaliyet alanlarını hızlıca algılayabilir.</span><span data-lang="en">The first section now uses a strong message, clear call-to-action buttons and statistics that highlight the company’s expertise. This allows visitors to quickly understand the corporate identity and service scope at first glance.</span></p>
+      </div>
+
+      <div class="visual-card reveal">
+        <div class="quote"><span data-lang="tr">“Bilimsel güvenilirlik ile dijital çevikliği aynı çatı altında sunuyoruz.”</span><span data-lang="en">“We deliver scientific reliability and digital agility under one roof.”</span></div>
+        <div class="small"><span data-lang="tr">Eksik WordPress kaynakları nedeniyle bozuk görünen alanlar yeniden düzenlendi; kutucuklar ve görsel bağımlılığı azalan yapı ile sayfa daha temiz bir görünüm kazandı.</span><span data-lang="en">Broken-looking areas caused by missing WordPress assets were rebuilt; with card structures and a less media-dependent layout, the page now looks cleaner.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#fff">
+  <div class="container">
+    <div class="section-top reveal">
+      <span class="section-tag"><span data-lang="tr">Uzmanlık alanları</span><span data-lang="en">Expertise areas</span></span>
+      <h2><span data-lang="tr">Kurumsal hizmet</span><span data-lang="en">Corporate</span> <em><span data-lang="tr">ekosistemimiz</span><span data-lang="en">ecosystem</span></em></h2>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">⚙️</div>
+        <h3><span data-lang="tr">Ar-Ge ve Yazılım</span><span data-lang="en">R&amp;D and Software</span></h3>
+        <p><span data-lang="tr">Kurumsal projeler için yazılım geliştirme, platform yönetimi ve dijital altyapı çözümleri.</span><span data-lang="en">Software development, platform management and digital infrastructure solutions for institutional projects.</span></p>
+        <a class="service-link" href="yazilimlar.html"><span data-lang="tr">Detaylara Git</span><span data-lang="en">View Details</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">📚</div>
+        <h3><span data-lang="tr">Yayıncılık</span><span data-lang="en">Publishing</span></h3>
+        <p><span data-lang="tr">Uluslararası hakemli dergiler, akademik içerik yönetimi ve indeksleme süreçleri.</span><span data-lang="en">International peer-reviewed journals, academic content management and indexing processes.</span></p>
+        <a class="service-link" href="about.html"><span data-lang="tr">Kurumsal Bilgi</span><span data-lang="en">Corporate Info</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🌐</div>
+        <h3><span data-lang="tr">Kongre ve Etkinlik Yönetimi</span><span data-lang="en">Congress and Event Management</span></h3>
+        <p><span data-lang="tr">Bilimsel etkinlik planlama, dijital kayıt, duyuru ve uluslararası organizasyon desteği.</span><span data-lang="en">Scientific event planning, digital registration, announcements and international organization support.</span></p>
+        <a class="service-link" href="etkinlikler.html"><span data-lang="tr">Etkinlikleri İncele</span><span data-lang="en">Explore Events</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-top reveal">
+      <span class="section-tag"><span data-lang="tr">İş birlikleri</span><span data-lang="en">Collaborations</span></span>
+      <h2><span data-lang="tr">Bağlantılı</span><span data-lang="en">Connected</span> <em><span data-lang="tr">ekosistemler</span><span data-lang="en">ecosystems</span></em></h2>
+    </div>
+
+    <div class="partner-row">
+      <div class="partner-card reveal"><div>ÇOMÜ</div></div>
+      <div class="partner-card reveal"><div>Çanakkale Belediyesi</div></div>
+      <div class="partner-card reveal"><div>Teknopark</div></div>
+      <div class="partner-card reveal"><div>IDA Campus</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="background:#fff">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <h3><span data-lang="tr">Bize ulaşın</span><span data-lang="en">Contact us</span></h3>
+        <p><span data-lang="tr">Kurumsal iş birlikleri, yazılım projeleri, akademik yayıncılık ve etkinlik organizasyonları için iletişime geçebilirsiniz.</span><span data-lang="en">Reach out for corporate collaborations, software projects, academic publishing and event organization inquiries.</span></p>
+
+        <div class="contact-list">
+          <div class="contact-item"><strong><span data-lang="tr">Adres</span><span data-lang="en">Address</span></strong>Namık Kemal Mah. Helvacıoğlu Sok. Han Evleri No:19-21/A, Çanakkale</div>
+          <div class="contact-item"><strong>Email</strong><a href="mailto:contact@holistence.com" style="color:var(--teal)">contact@holistence.com</a></div>
+          <div class="contact-item"><strong><span data-lang="tr">Telefon</span><span data-lang="en">Phone</span></strong>+90 (530) 638 70 17</div>
+          <div class="contact-item"><strong><span data-lang="tr">Sertifika</span><span data-lang="en">Certificate</span></strong>51372</div>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <h3><span data-lang="tr">Mesaj bırakın</span><span data-lang="en">Send a message</span></h3>
+        <form class="cf" action="https://formspree.io/f/xbdzggzn" method="POST">
+          <div class="row">
+            <input type="text" name="name" placeholder="Ad Soyad / Full Name" required>
+            <input type="tel" name="phone" placeholder="Telefon / Phone">
+          </div>
+          <input type="email" name="email" placeholder="E-posta / Email" required>
+          <input type="text" name="subject" placeholder="Konu / Subject" required>
+          <textarea name="message" placeholder="Mesajınız / Your Message" required></textarea>
+          <button type="submit"><span data-lang="tr">Mesajı Gönder</span><span data-lang="en">Send Message</span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>© 2025 <strong style="color:#fff">Holistence Academy</strong> · <span data-lang="tr">Tüm hakları saklıdır.</span><span data-lang="en">All rights reserved.</span></div>
+    <div><span data-lang="tr">TR/EN dil desteği ve modern kurumsal görünüm güncellendi.</span><span data-lang="en">TR/EN language support and modern corporate appearance updated.</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const browserLang = ((navigator.language || 'tr').toLowerCase().startsWith('tr')) ? 'tr' : 'en';
+  const savedLang = localStorage.getItem('hl_lang');
+  let currentLang = savedLang || browserLang;
+
+  function applyLang(lang){
+    currentLang = lang === 'en' ? 'en' : 'tr';
+    localStorage.setItem('hl_lang', currentLang);
+    document.documentElement.lang = currentLang;
+    document.body.className = 'lang-' + currentLang;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === currentLang);
+    });
+  }
+  window.setLang = applyLang;
+
+  function initReveal(){
+    const items = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      items.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, {threshold:.08});
+    items.forEach(el => obs.observe(el));
+  }
+
+  document.querySelectorAll('form.cf').forEach(form => {
+    form.addEventListener('submit', () => {
+      const button = form.querySelector('button');
+      if(button) button.textContent = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('mainNav');
+    if(nav) nav.style.boxShadow = window.scrollY > 18 ? '0 18px 50px rgba(0,0,0,.22)' : 'none';
+  });
+
+  applyLang(currentLang);
+  initReveal();
+})();
+</script>
+</body>
+</html>
