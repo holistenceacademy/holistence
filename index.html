@@ -24,19 +24,18 @@ body {
 .lang-tr .en {display:none}
 .lang-en .tr {display:none}
 
-/* --- GÜÇLENDİRİLMİŞ NAVİGASYON --- */
+/* --- NAVİGASYON (VİDEO ÜZERİNDE NET GÖRÜNÜM) --- */
 nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     height: 80px;
-    background: rgba(2, 12, 24, 0.85); /* Koyu ve net zemin */
-    backdrop-filter: blur(15px);
+    background: rgba(2, 12, 24, 0.9); 
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 5%;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .logo { height: 45px; }
@@ -46,33 +45,32 @@ nav {
     color: #fff;
     text-decoration: none;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: .05em;
     transition: 0.3s;
-    opacity: 0.8;
 }
-.menu a:hover { opacity: 1; color: var(--primary); }
+.menu a:hover { color: var(--primary); }
 
 .lang button {
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.4);
+    border: 1px solid white;
     color: white;
     padding: 6px 12px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 12px;
 }
 
-/* --- DİNAMİK HERO SECTİON --- */
+/* --- TAM EKRAN AYDINLIK SLIDER (HERO) --- */
 .hero {
     height: 100vh;
+    width: 100vw; /* Yatayda tam kapla */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
     position: relative;
     color: white;
+    overflow: hidden;
 }
 
 .hero video {
@@ -82,32 +80,43 @@ nav {
     z-index: -2;
 }
 
+/* Koyu katman (overlay) kaldırıldı, sadece metin altı hafif yumuşatma bırakıldı */
 .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(2, 12, 24, 0.7));
+    background: transparent; /* Karartma yok */
     z-index: -1;
 }
 
-/* Hareketli Yazılar */
+/* OKUNABİLİR METİN TASARIMI */
+.hero-content {
+    max-width: 900px;
+    padding: 20px;
+    /* Metinlerin okunması için güçlü gölge efekti */
+    text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8), 0px 2px 4px rgba(0, 0, 0, 1);
+}
+
 .hero h1 {
     font-family: "DM Serif Display";
-    font-size: clamp(32px, 6vw, 64px);
-    line-height: 1.1;
-    margin-bottom: 20px;
+    font-size: clamp(32px, 6vw, 60px);
+    line-height: 1.2;
+    margin-bottom: 25px;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease forwards;
 }
 
 .hero p {
-    max-width: 750px;
-    margin: 0 auto 30px;
-    color: #eee;
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 500;
+    margin-bottom: 35px;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease forwards 0.4s;
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .buttons {
@@ -116,25 +125,21 @@ nav {
     animation: fadeInUp 1s ease forwards 0.8s;
 }
 
-@keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
 .btn {
-    padding: 16px 32px;
-    border-radius: 40px;
+    padding: 16px 35px;
+    border-radius: 50px;
     text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: .1em;
+    font-size: 14px;
+    font-weight: 700;
     transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .primary { background: var(--primary); color: #000; }
-.secondary { border: 2px solid white; color: white; }
+.secondary { background: white; color: #000; }
 .btn:hover { transform: scale(1.05); }
 
-/* --- SECTIONS --- */
+/* --- DİĞER ALANLAR (ORİJİNAL VERİLER) --- */
 section { padding: 100px 20px; max-width: 1100px; margin: auto; }
 
 .cards {
@@ -145,88 +150,52 @@ section { padding: 100px 20px; max-width: 1100px; margin: auto; }
 }
 
 .card {
-    background: #f8f9fa;
-    color: #333;
+    background: #fff;
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.07);
     transition: 0.3s;
     border: 1px solid #eee;
 }
 .card:hover { transform: translateY(-10px); border-color: var(--accent); }
-.card h3 { color: var(--dark-bg); margin-bottom: 15px; }
 
-/* --- CONTACT --- */
 .contact {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: center;
 }
 
 input, textarea {
-    width: 100%;
-    padding: 16px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-family: inherit;
+    width: 100%; padding: 15px; margin-bottom: 15px;
+    border-radius: 8px; border: 1px solid #ddd;
     box-sizing: border-box;
 }
 
 button.send {
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 18px;
-    width: 100%;
-    border-radius: 40px;
-    cursor: pointer;
-    font-weight: 700;
-    transition: 0.3s;
+    background: var(--accent); color: white; border: none;
+    padding: 18px; width: 100%; border-radius: 40px;
+    cursor: pointer; font-weight: 700;
 }
-button.send:hover { filter: brightness(1.1); box-shadow: 0 5px 15px rgba(17, 191, 211, 0.3); }
 
-/* --- FOOTER (GÖRÜNÜR VE MODERN) --- */
 footer {
-    background: var(--dark-bg);
-    color: white;
+    background: var(--dark-bg); color: white;
     padding: 80px 20px 40px;
-    margin-top: 100px;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: 40px;
-    max-width: 1100px;
-    margin: auto;
+    max-width: 1100px; margin: auto;
 }
 
-.footer-grid h4 {
-    color: var(--accent);
-    font-size: 13px;
-    letter-spacing: .15em;
-    margin-bottom: 25px;
-}
-
-.footer-grid a {
-    display: block;
-    color: #aaa;
-    text-decoration: none;
-    margin-top: 12px;
-    font-size: 14px;
-    transition: 0.3s;
-}
-.footer-grid a:hover { color: white; }
+.footer-grid h4 { color: var(--accent); margin-bottom: 20px; }
+.footer-grid a { display: block; color: #aaa; text-decoration: none; margin-top: 10px; }
 
 .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 30px;
-    margin-top: 60px;
-    text-align: center;
-    color: #666;
-    font-size: 13px;
+    padding-top: 30px; margin-top: 50px;
+    text-align: center; color: #666;
 }
 
 @media(max-width:850px){
@@ -239,7 +208,7 @@ footer {
 <body class="lang-tr">
 
 <nav>
-    <img src="HA logo.png" class="logo" alt="Holistence Academy">
+    <img src="HA logo.png" class="logo">
     <div class="menu">
         <a href="index.html"><span class="tr">Anasayfa</span><span class="en">Home</span></a>
         <a href="about.html"><span class="tr">Hakkımızda</span><span class="en">About</span></a>
@@ -258,7 +227,7 @@ footer {
         <source src="şirket yer.mp4" type="video/mp4">
     </video>
     <div class="overlay"></div>
-    <div>
+    <div class="hero-content">
         <h1>
             <span class="tr">Bilim, teknoloji ve akademik yayıncılığı tek ekosistemde buluşturuyoruz</span>
             <span class="en">We bring science technology and academic publishing into one ecosystem</span>
@@ -276,30 +245,20 @@ footer {
 
 <section>
     <h2 style="text-align:center; font-family:'DM Serif Display'; font-size: 36px;">
-        <span class="tr">Uzmanlık Alanlarımız</span>
-        <span class="en">Our Expertise</span>
+        <span class="tr">Uzmanlık Alanlarımız</span><span class="en">Our Expertise</span>
     </h2>
     <div class="cards">
         <div class="card">
             <h3>Software</h3>
-            <p>
-                <span class="tr">Kurumsal yazılım platformları ve akademik sistemler geliştiriyoruz.</span>
-                <span class="en">We develop institutional software platforms and academic systems.</span>
-            </p>
+            <p><span class="tr">Kurumsal yazılım platformları ve akademik sistemler geliştiriyoruz.</span><span class="en">We develop institutional software platforms and academic systems.</span></p>
         </div>
         <div class="card">
             <h3>Publishing</h3>
-            <p>
-                <span class="tr">Uluslararası akademik dergi ve yayın süreçlerini yönetiyoruz.</span>
-                <span class="en">We manage international academic journal publishing processes.</span>
-            </p>
+            <p><span class="tr">Uluslararası akademik dergi ve yayın süreçlerini yönetiyoruz.</span><span class="en">We manage international academic journal publishing processes.</span></p>
         </div>
         <div class="card">
             <h3>Events</h3>
-            <p>
-                <span class="tr">Kongreler, konferanslar ve bilimsel etkinlik organizasyonları.</span>
-                <span class="en">Congress conferences and scientific event organizations.</span>
-            </p>
+            <p><span class="tr">Kongreler, konferanslar ve bilimsel etkinlik organizasyonları.</span><span class="en">Congress conferences and scientific event organizations.</span></p>
         </div>
     </div>
 </section>
@@ -307,25 +266,20 @@ footer {
 <section>
     <div class="contact">
         <div>
-            <h2 style="font-family:'DM Serif Display'; font-size: 40px;">
-                <span class="tr">Bize Ulaşın</span>
-                <span class="en">Contact Us</span>
+            <h2 style="font-family:'DM Serif Display'; font-size: 38px;">
+                <span class="tr">Bize Ulaşın</span><span class="en">Contact Us</span>
             </h2>
-            <p style="font-size: 18px; line-height: 1.6;">
+            <p>
                 <span class="tr">Yazılım projeleri, akademik yayıncılık ve etkinlik organizasyonları için bizimle iletişime geçebilirsiniz.</span>
                 <span class="en">You can contact us for software projects academic publishing and event organization.</span>
             </p>
         </div>
-        <div>
-            <form action="https://formspree.io/f/xbdzggzn" method="POST">
-                <input type="text" name="name" placeholder="Ad / Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <textarea name="message" placeholder="Mesaj / Message" required></textarea>
-                <button class="send">
-                    <span class="tr">Gönder</span><span class="en">Send</span>
-                </button>
-            </form>
-        </div>
+        <form action="https://formspree.io/f/xbdzggzn" method="POST">
+            <input type="text" name="name" placeholder="Ad / Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Mesaj / Message" required></textarea>
+            <button class="send"><span class="tr">Gönder</span><span class="en">Send</span></button>
+        </form>
     </div>
 </section>
 
@@ -333,31 +287,16 @@ footer {
     <div class="footer-grid">
         <div>
             <img src="HA logo.png" style="height:50px; margin-bottom: 20px;">
-            <p style="color:#888; font-size: 14px; line-height: 1.6;">
+            <p style="color:#888; font-size: 14px;">
                 <span class="tr">2016 yılından bu yana Ar-Ge, Yazılım, Uluslararası Yayıncılık, Akademik Etkinlik ve Danışmanlık alanlarında bütünsel hizmetler.</span>
                 <span class="en">Since 2016 holistic services in R&D software international publishing academic events and consulting.</span>
             </p>
         </div>
-        <div>
-            <h4>HİZMETLER</h4>
-            <a href="#">Yazılım</a>
-            <a href="#">Yayıncılık</a>
-            <a href="#">Akademik Dergiler</a>
-        </div>
-        <div>
-            <h4>ETKİNLİKLER</h4>
-            <a href="#">Kongreler</a>
-            <a href="#">Sergiler</a>
-        </div>
-        <div>
-            <h4>KURUMSAL</h4>
-            <a href="about.html">Hakkımızda</a>
-            <a href="iletisim.html">İletişim</a>
-        </div>
+        <div><h4>HİZMETLER</h4><a href="#">Yazılım</a><a href="#">Yayıncılık</a><a href="#">Akademik Dergiler</a></div>
+        <div><h4>ETKİNLİKLER</h4><a href="#">Kongreler</a><a href="#">Sergiler</a></div>
+        <div><h4>KURUMSAL</h4><a href="about.html">Hakkımızda</a><a href="iletisim.html">İletişim</a></div>
     </div>
-    <div class="footer-bottom">
-        © 2016–2025 Holistence Academy
-    </div>
+    <div class="footer-bottom">© 2016–2025 Holistence Academy</div>
 </footer>
 
 <script>
@@ -372,6 +311,5 @@ else{
     else setLang("en")
 }
 </script>
-
 </body>
 </html>
