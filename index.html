@@ -1,299 +1,377 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holistence Academy | Modern & Dynamic</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #00d1e0;
-            --dark: #0a0f18;
-            --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holistence Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
-        body {
-            margin: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #f8f9fa;
-            color: var(--dark);
-            overflow-x: hidden;
-        }
+<style>
+:root {
+    --primary: #d4b052;
+    --accent: #11bfd3;
+    --dark-bg: #020c18;
+}
 
-        .lang-tr .en { display: none; }
-        .lang-en .tr { display: none; }
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: white;
+    color: #333;
+    overflow-x: hidden;
+}
 
-        /* --- DAHA GÖRÜNÜR NAVİGASYON --- */
-        nav {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1200px;
-            height: 70px;
-            background: rgba(10, 15, 24, 0.7); /* Koyu cam efekti */
-            backdrop-filter: blur(15px);
-            border-radius: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 30px;
-            z-index: 1000;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+.lang-tr .en {display:none}
+.lang-en .tr {display:none}
 
-        .logo { height: 35px; filter: brightness(0) invert(1); }
+/* --- GÜÇLENDİRİLMİŞ NAVİGASYON --- */
+nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 80px;
+    background: rgba(2, 12, 24, 0.85); /* Koyu ve net zemin */
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
-        .menu { display: flex; gap: 25px; }
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: 0.3s;
-            padding: 8px 12px;
-            border-radius: 20px;
-        }
+.logo { height: 45px; }
 
-        .menu a:hover {
-            background: var(--primary);
-            color: var(--dark);
-        }
+.menu { display: flex; gap: 25px; }
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .05em;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+.menu a:hover { opacity: 1; color: var(--primary); }
 
-        .lang button {
-            background: var(--primary);
-            border: none;
-            color: var(--dark);
-            padding: 5px 15px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-weight: 800;
-            font-size: 11px;
-        }
+.lang button {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
 
-        /* --- DİNAMİK HERO SECTİON --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            color: white;
-            overflow: hidden;
-        }
+/* --- DİNAMİK HERO SECTİON --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    color: white;
+}
 
-        .hero video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-        }
+.hero video {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
 
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
-            z-index: -1;
-        }
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(2, 12, 24, 0.7));
+    z-index: -1;
+}
 
-        /* HAREKETLİ YAZI EFEKTLERİ */
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(35px, 6vw, 75px);
-            line-height: 1.1;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: moveUp 1s ease forwards 0.3s;
-        }
+/* Hareketli Yazılar */
+.hero h1 {
+    font-family: "DM Serif Display";
+    font-size: clamp(32px, 6vw, 64px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+}
 
-        .hero-content p {
-            font-size: clamp(16px, 2vw, 20px);
-            max-width: 800px;
-            margin: 0 auto 40px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: moveUp 1s ease forwards 0.6s;
-        }
+.hero p {
+    max-width: 750px;
+    margin: 0 auto 30px;
+    color: #eee;
+    font-size: 18px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards 0.4s;
+}
 
-        .hero-buttons {
-            opacity: 0;
-            animation: fadeIn 1.5s ease forwards 1s;
-        }
+.buttons {
+    display: flex; gap: 15px; justify-content: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.8s;
+}
 
-        @keyframes moveUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
+.btn {
+    padding: 16px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    transition: 0.3s;
+}
 
-        .btn {
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-            transition: 0.4s;
-            margin: 0 10px;
-        }
+.primary { background: var(--primary); color: #000; }
+.secondary { border: 2px solid white; color: white; }
+.btn:hover { transform: scale(1.05); }
 
-        .primary { background: var(--primary); color: var(--dark); border: 2px solid var(--primary); }
-        .primary:hover { background: transparent; color: var(--primary); }
+/* --- SECTIONS --- */
+section { padding: 100px 20px; max-width: 1100px; margin: auto; }
 
-        .secondary { border: 2px solid white; color: white; }
-        .secondary:hover { background: white; color: var(--dark); }
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
 
-        /* --- CARDS --- */
-        .expertise { padding: 100px 5%; background: white; }
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
+.card {
+    background: #f8f9fa;
+    color: #333;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border: 1px solid #eee;
+}
+.card:hover { transform: translateY(-10px); border-color: var(--accent); }
+.card h3 { color: var(--dark-bg); margin-bottom: 15px; }
 
-        .card {
-            background: #fdfdfd;
-            padding: 40px;
-            border-radius: 30px;
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #eee;
-            position: relative;
-            overflow: hidden;
-        }
+/* --- CONTACT --- */
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
 
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            border-color: var(--primary);
-        }
+input, textarea {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+    box-sizing: border-box;
+}
 
-        /* --- FORM & FOOTER --- */
-        .contact-box {
-            background: var(--dark);
-            color: white;
-            padding: 80px 5%;
-            border-radius: 50px 50px 0 0;
-        }
+button.send {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 18px;
+    width: 100%;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+}
+button.send:hover { filter: brightness(1.1); box-shadow: 0 5px 15px rgba(17, 191, 211, 0.3); }
 
-        input, textarea {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            width: 100%;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-        }
+/* --- FOOTER (GÖRÜNÜR VE MODERN) --- */
+footer {
+    background: var(--dark-bg);
+    color: white;
+    padding: 80px 20px 40px;
+    margin-top: 100px;
+}
 
-        .send-btn {
-            background: var(--primary);
-            border: none;
-            padding: 18px;
-            width: 100%;
-            border-radius: 50px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+}
 
-        .send-btn:hover { transform: scale(1.02); filter: brightness(1.1); }
+.footer-grid h4 {
+    color: var(--accent);
+    font-size: 13px;
+    letter-spacing: .15em;
+    margin-bottom: 25px;
+}
 
-    </style>
+.footer-grid a {
+    display: block;
+    color: #aaa;
+    text-decoration: none;
+    margin-top: 12px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.footer-grid a:hover { color: white; }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    margin-top: 60px;
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+}
+
+@media(max-width:850px){
+    .menu { display:none; }
+    .contact, .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
+
 <body class="lang-tr">
 
-    <nav>
-        <img src="HA logo.png" class="logo">
-        <div class="menu">
-            <a href="#"><span class="tr">Anasayfa</span><span class="en">Home</span></a>
-            <a href="#"><span class="tr">Hakkımızda</span><span class="en">About</span></a>
-            <a href="#"><span class="tr">Hizmetler</span><span class="en">Services</span></a>
-            <a href="#"><span class="tr">İletişim</span><span class="en">Contact</span></a>
-        </div>
-        <div class="lang">
-            <button onclick="setLang('tr')">TR</button>
-            <button onclick="setLang('en')" style="margin-left:5px; background:none; border:1px solid var(--primary); color:var(--primary)">EN</button>
-        </div>
-    </nav>
+<nav>
+    <img src="HA logo.png" class="logo" alt="Holistence Academy">
+    <div class="menu">
+        <a href="index.html"><span class="tr">Anasayfa</span><span class="en">Home</span></a>
+        <a href="about.html"><span class="tr">Hakkımızda</span><span class="en">About</span></a>
+        <a href="hizmetler.html"><span class="tr">Hizmetler</span><span class="en">Services</span></a>
+        <a href="etkinlikler.html"><span class="tr">Etkinlikler</span><span class="en">Events</span></a>
+        <a href="iletisim.html"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+    </div>
+    <div class="lang">
+        <button onclick="setLang('tr')">TR</button>
+        <button onclick="setLang('en')">EN</button>
+    </div>
+</nav>
 
-    <section class="hero">
-        <video autoplay muted loop playsinline>
-            <source src="şirket yer.mp4" type="video/mp4">
-        </video>
-        <div class="overlay"></div>
-        
-        <div class="hero-content">
-            <h1>
-                <span class="tr">Akademik Geleceği<br><span style="color:var(--primary)">Birlikte Tasarlayalım</span></span>
-                <span class="en">Designing the<br><span style="color:var(--primary)">Academic Future</span></span>
-            </h1>
+<section class="hero">
+    <video autoplay muted loop playsinline>
+        <source src="şirket yer.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div>
+        <h1>
+            <span class="tr">Bilim, teknoloji ve akademik yayıncılığı tek ekosistemde buluşturuyoruz</span>
+            <span class="en">We bring science technology and academic publishing into one ecosystem</span>
+        </h1>
+        <p>
+            <span class="tr">Holistence Academy araştırma, yazılım geliştirme, akademik yayıncılık ve bilimsel etkinlik organizasyonları alanlarında faaliyet gösteren uluslararası bir akademik girişimdir.</span>
+            <span class="en">Holistence Academy is an international academic initiative operating in research software development academic publishing and scientific event organization.</span>
+        </p>
+        <div class="buttons">
+            <a class="btn primary" href="iletisim.html"><span class="tr">İletişime Geç</span><span class="en">Contact</span></a>
+            <a class="btn secondary" href="about.html"><span class="tr">Hakkımızda</span><span class="en">About</span></a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 style="text-align:center; font-family:'DM Serif Display'; font-size: 36px;">
+        <span class="tr">Uzmanlık Alanlarımız</span>
+        <span class="en">Our Expertise</span>
+    </h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Software</h3>
             <p>
-                <span class="tr">Bilimsel araştırmadan yazılım çözümlerine kadar her aşamada global bir vizyonla yanınızdayız.</span>
-                <span class="en">We stand by you with a global vision at every stage from scientific research to software solutions.</span>
+                <span class="tr">Kurumsal yazılım platformları ve akademik sistemler geliştiriyoruz.</span>
+                <span class="en">We develop institutional software platforms and academic systems.</span>
             </p>
-            <div class="hero-buttons">
-                <a href="#" class="btn primary"><span class="tr">Hemen Başla</span><span class="en">Get Started</span></a>
-                <a href="#" class="btn secondary"><span class="tr">Tur Atın</span><span class="en">Take a Tour</span></a>
-            </div>
         </div>
-    </section>
-
-    <section class="expertise">
-        <h2 style="text-align:center; font-size: 40px; font-family:'Playfair Display'">
-            <span class="tr">Uzmanlık Alanlarımız</span>
-            <span class="en">Our Areas of Expertise</span>
-        </h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Software Solutions</h3>
-                <p>Akademik veri yönetimi ve kurumsal sistemler için modern yazılım mimarileri.</p>
-            </div>
-            <div class="card" style="border-bottom: 5px solid var(--primary)">
-                <h3>Global Publishing</h3>
-                <p>Uluslararası indekslerde taranan kaliteli yayıncılık ve dergi yönetimi.</p>
-            </div>
-            <div class="card">
-                <h3>Scientific Events</h3>
-                <p>Dünyanın her yerinden bilim insanlarını buluşturan hibrit kongreler.</p>
-            </div>
+        <div class="card">
+            <h3>Publishing</h3>
+            <p>
+                <span class="tr">Uluslararası akademik dergi ve yayın süreçlerini yönetiyoruz.</span>
+                <span class="en">We manage international academic journal publishing processes.</span>
+            </p>
         </div>
-    </section>
+        <div class="card">
+            <h3>Events</h3>
+            <p>
+                <span class="tr">Kongreler, konferanslar ve bilimsel etkinlik organizasyonları.</span>
+                <span class="en">Congress conferences and scientific event organizations.</span>
+            </p>
+        </div>
+    </div>
+</section>
 
-    <section class="contact-box">
-        <div style="max-width: 1000px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
-            <div>
-                <h2 style="font-size: 45px; color: var(--primary)">Bize Yazın</h2>
-                <p>Yeni bir iş birliği için ilk adımı atın. Ofisimizde kahve içmeye her zaman bekleriz.</p>
-            </div>
+<section>
+    <div class="contact">
+        <div>
+            <h2 style="font-family:'DM Serif Display'; font-size: 40px;">
+                <span class="tr">Bize Ulaşın</span>
+                <span class="en">Contact Us</span>
+            </h2>
+            <p style="font-size: 18px; line-height: 1.6;">
+                <span class="tr">Yazılım projeleri, akademik yayıncılık ve etkinlik organizasyonları için bizimle iletişime geçebilirsiniz.</span>
+                <span class="en">You can contact us for software projects academic publishing and event organization.</span>
+            </p>
+        </div>
+        <div>
             <form action="https://formspree.io/f/xbdzggzn" method="POST">
-                <input type="text" name="name" placeholder="İsim / Name">
-                <input type="email" name="email" placeholder="E-posta / Email">
-                <textarea name="message" rows="4" placeholder="Mesajınız / Message"></textarea>
-                <button class="send-btn">GÖNDER</button>
+                <input type="text" name="name" placeholder="Ad / Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Mesaj / Message" required></textarea>
+                <button class="send">
+                    <span class="tr">Gönder</span><span class="en">Send</span>
+                </button>
             </form>
         </div>
-    </section>
+    </div>
+</section>
 
-    <script>
-        function setLang(lang){
-            document.body.className="lang-"+lang;
-            localStorage.setItem("lang",lang);
-        }
-        const saved=localStorage.getItem("lang") || (navigator.language.startsWith("tr") ? "tr" : "en");
-        setLang(saved);
-    </script>
+<footer>
+    <div class="footer-grid">
+        <div>
+            <img src="HA logo.png" style="height:50px; margin-bottom: 20px;">
+            <p style="color:#888; font-size: 14px; line-height: 1.6;">
+                <span class="tr">2016 yılından bu yana Ar-Ge, Yazılım, Uluslararası Yayıncılık, Akademik Etkinlik ve Danışmanlık alanlarında bütünsel hizmetler.</span>
+                <span class="en">Since 2016 holistic services in R&D software international publishing academic events and consulting.</span>
+            </p>
+        </div>
+        <div>
+            <h4>HİZMETLER</h4>
+            <a href="#">Yazılım</a>
+            <a href="#">Yayıncılık</a>
+            <a href="#">Akademik Dergiler</a>
+        </div>
+        <div>
+            <h4>ETKİNLİKLER</h4>
+            <a href="#">Kongreler</a>
+            <a href="#">Sergiler</a>
+        </div>
+        <div>
+            <h4>KURUMSAL</h4>
+            <a href="about.html">Hakkımızda</a>
+            <a href="iletisim.html">İletişim</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2016–2025 Holistence Academy
+    </div>
+</footer>
+
+<script>
+function setLang(lang){
+    document.body.className="lang-"+lang
+    localStorage.setItem("lang",lang)
+}
+const saved=localStorage.getItem("lang")
+if(saved){setLang(saved)}
+else{
+    if(navigator.language.startsWith("tr")) setLang("tr")
+    else setLang("en")
+}
+</script>
+
 </body>
 </html>
