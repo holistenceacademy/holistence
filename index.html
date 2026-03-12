@@ -1,295 +1,315 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Holistence Academy | Global Academic Initiatives</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<style>
-:root{--dark:#060D18;--dark2:#0C1830;--navy:#0F2545;--blue:#1A3D6E;--teal:#0D7E8A;--teal-l:#12A8B8;--teal-d:#095E68;--gold:#C9A84C;--gold-l:#E8C97A;--white:#F8F6F2;--cream:#EEE8DC;--muted:#8096B2;--text:#1E3048;--border:rgba(15,37,69,0.1);}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{background:var(--white);color:var(--text);font-family:"Inter",sans-serif;overflow-x:hidden;}
-::selection{background:var(--teal);color:#fff;}
-::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold),var(--teal));}
-img{max-width:100%;display:block;}a{text-decoration:none;}
-.lang-switcher{display:flex;align-items:center;}
-.lang-btn{font-size:10px;font-weight:700;letter-spacing:.15em;padding:7px 13px;border:1px solid rgba(201,168,76,.3);color:rgba(248,246,242,.45);background:transparent;cursor:pointer;transition:all .3s;font-family:"Inter",sans-serif;}
-.lang-btn.active{background:var(--gold);color:var(--dark);border-color:var(--gold);}
-.lang-btn:first-child{border-right:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:rgba(6,13,24,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.18);transition:box-shadow .4s;}
-nav.scrolled{box-shadow:0 4px 32px rgba(0,0,0,.35);}
-.nav-logo img{height:46px;width:auto;}
-.nav-links{display:flex;list-style:none;flex:1;justify-content:center;}
-.nav-links>li{position:relative;}
-.nav-links>li>a{padding:0 12px;height:72px;display:flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(248,246,242,.55);transition:color .3s;white-space:nowrap;}
-.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--gold);}
-.nav-links>li>a::after{content:'';position:absolute;bottom:0;left:12px;right:12px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .3s;}
-.nav-links>li>a:hover::after,.nav-links>li>a.active::after{transform:scaleX(1);}
-.nav-links li:hover .dropdown{display:block;}
-.dropdown{display:none;position:absolute;top:72px;left:0;background:rgba(6,13,24,.98);border:1px solid rgba(201,168,76,.2);border-top:2px solid var(--gold);min-width:200px;z-index:200;}
-.dropdown a{display:block;padding:12px 20px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(248,246,242,.6);border-bottom:1px solid rgba(255,255,255,.04);transition:color .3s;}
-.dropdown a:hover{color:var(--gold);background:rgba(201,168,76,.06);}
-.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
-.nav-cta{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:10px 18px;transition:background .3s;white-space:nowrap;}
-.nav-cta:hover{background:var(--gold-l);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--gold);}
-.mob-menu{display:none;position:fixed;inset:0;top:72px;background:rgba(6,13,24,.99);z-index:999;padding:24px;flex-direction:column;overflow-y:auto;}
-.mob-menu.open{display:flex;}
-.mob-menu a{display:block;padding:13px 0;font-size:13px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(248,246,242,.5);border-bottom:1px solid rgba(255,255,255,.05);transition:color .3s;}
-.mob-menu a:hover{color:var(--teal-l);}
-.sec{padding:88px 52px;}.sec.dark{background:var(--dark);color:var(--white);}.sec.dark2{background:var(--dark2);color:var(--white);}.sec.cream{background:var(--cream);}
-.container{max-width:1200px;margin:0 auto;}
-.sec-tag{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:var(--teal-l);margin-bottom:14px;}
-.sec-tag::before{content:'';display:block;width:24px;height:1px;background:var(--teal);}
-.sec-h{font-family:"DM Serif Display",serif;font-size:clamp(28px,4vw,48px);font-weight:400;line-height:1.15;color:var(--navy);margin-bottom:52px;}
-.dark .sec-h,.dark2 .sec-h{color:var(--white);}
-.sec-h em{font-style:italic;color:var(--teal);}.dark .sec-h em,.dark2 .sec-h em{color:var(--teal-l);}
-.teal-rule{width:48px;height:2px;background:var(--teal);margin-bottom:52px;margin-top:-36px;}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.card-dark{background:rgba(255,255,255,.04);padding:40px 32px;border-top:2px solid rgba(13,126,138,.2);transition:border-color .3s,background .3s;}
-.card-dark:hover{border-top-color:var(--teal-l);background:rgba(13,126,138,.07);}
-.card-icon{font-size:30px;margin-bottom:18px;}
-.card-title{font-family:"Cormorant Garamond",serif;font-size:22px;color:var(--white);margin-bottom:12px;}
-.card-body{font-size:13px;font-weight:300;line-height:1.85;color:rgba(248,246,242,.55);}
-.big-quote{padding:88px 52px;text-align:center;background:var(--dark);position:relative;overflow:hidden;}
-.big-quote::before{content:'"';position:absolute;top:-80px;left:50%;transform:translateX(-50%);font-family:"Cormorant Garamond",serif;font-size:360px;font-weight:300;color:rgba(13,126,138,.06);line-height:1;pointer-events:none;}
-.big-quote blockquote{position:relative;z-index:1;font-family:"DM Serif Display",serif;font-style:italic;font-size:clamp(20px,3vw,34px);color:var(--white);line-height:1.5;max-width:860px;margin:0 auto;}
-.big-quote cite{display:block;margin-top:24px;font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--teal-l);font-style:normal;}
-.ticker{background:var(--teal);padding:13px 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.1);}
-.ticker-inner{display:flex;animation:tickerMove 35s linear infinite;white-space:nowrap;}
-.ticker-item{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.85);padding:0 40px;display:inline-flex;align-items:center;gap:14px;flex-shrink:0;}
-.ticker-item::after{content:'◆';font-size:5px;opacity:.6;}
-footer{background:var(--dark);}
-.footer-top{padding:64px 52px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid rgba(255,255,255,.05);max-width:1200px;margin:0 auto;}
-.footer-brand img{height:52px;width:auto;margin-bottom:14px;}
-.footer-desc{font-size:12px;font-weight:300;color:rgba(248,246,242,.38);line-height:1.9;max-width:280px;}
-.footer-col h5{font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--teal-l);margin-bottom:18px;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-col ul li a{font-size:12px;font-weight:300;color:rgba(248,246,242,.42);transition:color .3s;}
-.footer-col ul li a:hover{color:var(--teal-l);}
-.footer-bottom{padding:24px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1200px;margin:0 auto;}
-.footer-bottom p{font-size:11px;font-weight:300;color:rgba(248,246,242,.25);}
-.footer-bottom strong{color:var(--teal-l);font-weight:400;}
-.prose p{font-size:15px;font-weight:300;line-height:1.95;color:#3D5068;margin-bottom:20px;}
-.prose p strong{color:var(--navy);font-weight:600;}
-.cf{display:flex;flex-direction:column;gap:14px;}
-.cf input,.cf textarea{width:100%;padding:15px 18px;border:1px solid var(--border);font-family:"Inter",sans-serif;font-size:14px;font-weight:300;color:var(--text);background:var(--cream);outline:none;resize:none;transition:border-color .3s;}
-.cf input:focus,.cf textarea:focus{border-color:var(--teal);}
-.cf textarea{min-height:130px;}
-.cf button{font-family:"Inter",sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--teal);border:none;padding:18px;cursor:pointer;transition:background .3s;}
-.cf button:hover{background:var(--teal-l);}
-.partners-track{overflow:hidden;padding:44px 0;background:var(--cream);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.partner-item{display:inline-flex;align-items:center;justify-content:center;padding:0 48px;flex-shrink:0;opacity:.45;transition:opacity .3s,filter .3s;filter:grayscale(100%);}
-.partner-item:hover{opacity:1;filter:grayscale(0%);}
-.partner-item img{height:42px;width:auto;max-width:140px;object-fit:contain;}
-.info-box{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);padding:28px 32px;}
-.info-row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.05);}
-.info-row:last-child{border-bottom:none;}
-.info-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
-.info-label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-l);margin-bottom:4px;}
-.info-value{font-size:13px;font-weight:300;color:rgba(248,246,242,.7);line-height:1.6;}
-.info-value a{color:var(--teal-l);}
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-@keyframes tickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes scrollPulse{0%,100%{opacity:1}50%{opacity:.15}}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .85s ease,transform .85s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.d1{transition-delay:.12s;}.d2{transition-delay:.24s;}.d3{transition-delay:.36s;}
-@media(max-width:1100px){.nav-links{display:none!important;}.nav-right .nav-cta{display:none!important;}.hamburger{display:flex!important;}nav{padding:0 20px;}}
-@media(max-width:900px){.sec{padding:64px 24px;}.big-quote{padding:64px 24px;}.grid-3{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr 1fr;padding:40px 24px;gap:28px;}.footer-bottom{padding:20px 24px;}}
-@media(max-width:600px){.footer-top{grid-template-columns:1fr;}}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holistence Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
-/* === DİL SİSTEMİ CSS === */
-[data-lang="en"] { display: none; }
-body.lang-en [data-lang="en"] { display: inline; }
-body.lang-en [data-lang="tr"] { display: none; }
-body.lang-en div[data-lang="en"], body.lang-en p[data-lang="en"], body.lang-en section[data-lang="en"] { display: block !important; }
-div[data-lang="en"], p[data-lang="en"], section[data-lang="en"] { display: none; }
+<style>
+:root {
+    --primary: #d4b052;
+    --accent: #11bfd3;
+    --dark-bg: #020c18;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: white;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.lang-tr .en {display:none}
+.lang-en .tr {display:none}
+
+/* --- NAVİGASYON (VİDEO ÜZERİNDE NET GÖRÜNÜM) --- */
+nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 80px;
+    background: rgba(2, 12, 24, 0.9); 
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    z-index: 1000;
+}
+
+.logo { height: 45px; }
+
+.menu { display: flex; gap: 25px; }
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    transition: 0.3s;
+}
+.menu a:hover { color: var(--primary); }
+
+.lang button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- TAM EKRAN AYDINLIK SLIDER (HERO) --- */
+.hero {
+    height: 100vh;
+    width: 100vw; /* Yatayda tam kapla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: white;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Koyu katman (overlay) kaldırıldı, sadece metin altı hafif yumuşatma bırakıldı */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent; /* Karartma yok */
+    z-index: -1;
+}
+
+/* OKUNABİLİR METİN TASARIMI */
+.hero-content {
+    max-width: 900px;
+    padding: 20px;
+    /* Metinlerin okunması için güçlü gölge efekti */
+    text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8), 0px 2px 4px rgba(0, 0, 0, 1);
+}
+
+.hero h1 {
+    font-family: "DM Serif Display";
+    font-size: clamp(32px, 6vw, 60px);
+    line-height: 1.2;
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.hero p {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 500;
+    margin-bottom: 35px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards 0.4s;
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.buttons {
+    display: flex; gap: 15px; justify-content: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.8s;
+}
+
+.btn {
+    padding: 16px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.primary { background: var(--primary); color: #000; }
+.secondary { background: white; color: #000; }
+.btn:hover { transform: scale(1.05); }
+
+/* --- DİĞER ALANLAR (ORİJİNAL VERİLER) --- */
+section { padding: 100px 20px; max-width: 1100px; margin: auto; }
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+    transition: 0.3s;
+    border: 1px solid #eee;
+}
+.card:hover { transform: translateY(-10px); border-color: var(--accent); }
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+input, textarea {
+    width: 100%; padding: 15px; margin-bottom: 15px;
+    border-radius: 8px; border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+button.send {
+    background: var(--accent); color: white; border: none;
+    padding: 18px; width: 100%; border-radius: 40px;
+    cursor: pointer; font-weight: 700;
+}
+
+footer {
+    background: var(--dark-bg); color: white;
+    padding: 80px 20px 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1100px; margin: auto;
+}
+
+.footer-grid h4 { color: var(--accent); margin-bottom: 20px; }
+.footer-grid a { display: block; color: #aaa; text-decoration: none; margin-top: 10px; }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px; margin-top: 50px;
+    text-align: center; color: #666;
+}
+
+@media(max-width:850px){
+    .menu { display:none; }
+    .contact, .footer-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
+
 <body class="lang-tr">
 
-<nav id="mainNav">
-  <a href="index.html" class="nav-logo">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAdIAAAEBCAMAAAA6A... (Logonuzun Base64 kodu)" alt="Holistence Academy">
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active"><span data-lang="tr">Anasayfa</span><span data-lang="en">Home</span></a></li>
-    <li><a href="about.html"><span data-lang="tr">Hakkımızda</span><span data-lang="en">About</span></a></li>
-    <li><a href="hizmetler.html"><span data-lang="tr">Hizmetler</span><span data-lang="en">Services</span></a></li>
-    <li><a href="etkinlikler.html"><span data-lang="tr">Etkinlikler</span><span data-lang="en">Events</span> ▾</a>
-      <div class="dropdown">
-        <a href="kongreler.html"><span data-lang="tr">Kongreler</span><span data-lang="en">Congresses</span></a>
-        <a href="sergiler.html"><span data-lang="tr">Sergiler</span><span data-lang="en">Exhibitions</span></a>
-      </div>
-    </li>
-    <li><a href="iletisim.html"><span data-lang="tr">İletişim</span><span data-lang="en">Contact</span></a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('tr')">TR</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
+<nav>
+    <img src="HA logo.png" class="logo">
+    <div class="menu">
+        <a href="index.html"><span class="tr">Anasayfa</span><span class="en">Home</span></a>
+        <a href="about.html"><span class="tr">Hakkımızda</span><span class="en">About</span></a>
+        <a href="hizmetler.html"><span class="tr">Hizmetler</span><span class="en">Services</span></a>
+        <a href="etkinlikler.html"><span class="tr">Etkinlikler</span><span class="en">Events</span></a>
+        <a href="iletisim.html"><span class="tr">İletişim</span><span class="en">Contact</span></a>
     </div>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <div class="lang">
+        <button onclick="setLang('tr')">TR</button>
+        <button onclick="setLang('en')">EN</button>
+    </div>
 </nav>
 
-<section style="min-height:100vh;padding-top:72px;background:var(--dark);display:flex;flex-direction:column;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(13,126,138,.2) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 60%,rgba(26,61,110,.28) 0%,transparent 70%);pointer-events:none;"></div>
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:80px;max-width:1300px;margin:0 auto;width:100%;">
-    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(52px,8vw,100px);font-weight:400;line-height:1.0;color:var(--white);margin-bottom:8px;animation:fadeUp 1s ease .1s both;">
-      Holistence<br><span style="font-style:italic;background:linear-gradient(120deg,var(--teal-l),var(--gold-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Academy</span>
-    </h1>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2vw,22px);font-weight:300;font-style:italic;color:rgba(248,246,242,.55);line-height:1.7;max-width:580px;margin-bottom:44px;animation:fadeUp 1s ease .2s both;">
-      <span data-lang="tr">Ar-Ge, Yazılım, Uluslararası Yayıncılık, Akademik Etkinlik ve Danışmanlık alanlarında bütünsel çözümler.</span>
-      <span data-lang="en">Holistic solutions in R&D, Software, International Publishing, Academic Events, and Consulting.</span>
-    </p>
-    <div style="display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 1s ease .4s both;">
-      <a href="hizmetler.html" style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:15px 34px;">
-        <span data-lang="tr">Hizmetlerimiz</span><span data-lang="en">Our Services</span>
-      </a>
-      <a href="iletisim.html" style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-l);border:1px solid var(--teal);padding:15px 34px;">
-        <span data-lang="tr">İletişim →</span><span data-lang="en">Contact →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="sec dark">
-  <div class="container">
-    <div class="reveal">
-      <p class="sec-tag"><span data-lang="tr">Hizmetlerimiz</span><span data-lang="en">Our Services</span></p>
-      <h2 class="sec-h"><span data-lang="tr">Bütünselci ve Yenilikçi</span><span data-lang="en">Holistic and Innovative</span> <em><span data-lang="tr">Hizmetlerimiz</span><span data-lang="en">Services</span></em></h2>
-      <div class="teal-rule"></div>
-    </div>
-    <div class="grid-3">
-      <div class="card-dark reveal">
-        <div class="card-icon">📖</div>
-        <div class="card-title"><span data-lang="tr">Kitap Yayıncılığı</span><span data-lang="en">Book Publishing</span></div>
-        <p class="card-body">
-          <span data-lang="tr">Holistence Publications markası ile uluslararası akademik kitaplar yayınlamaktayız.</span>
-          <span data-lang="en">We publish international academic books under the Holistence Publications brand.</span>
-        </p>
-      </div>
-      <div class="card-dark reveal d1">
-        <div class="card-icon">📰</div>
-        <div class="card-title"><span data-lang="tr">Dergi Yayıncılığı</span><span data-lang="en">Journal Publishing</span></div>
-        <p class="card-body">
-          <span data-lang="tr">Saygın endeksler tarafından taranan 10+ hakemli akademik dergimiz mevcuttur.</span>
-          <span data-lang="en">We have 10+ peer-reviewed journals indexed by reputable international databases.</span>
-        </p>
-      </div>
-      <div class="card-dark reveal d2">
-        <div class="card-icon">💻</div>
-        <div class="card-title"><span data-lang="tr">Yazılım & Ar-Ge</span><span data-lang="en">Software & R&D</span></div>
-        <p class="card-body">
-          <span data-lang="tr">Çanakkale Teknopark'ta web ve mobil alanda son teknoloji uygulamalar geliştiriyoruz.</span>
-          <span data-lang="en">We develop cutting-edge web and mobile applications at Çanakkale Technopark.</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec cream">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
-      <div class="prose reveal">
-        <p class="sec-tag"><span data-lang="tr">Hikayemiz</span><span data-lang="en">Our Story</span></p>
-        <h2 style="font-family:'DM Serif Display',serif;font-size:36px;margin-bottom:20px;">
-          <span data-lang="tr">2016'dan beri Akademi ve Teknoloji</span>
-          <span data-lang="en">Academy & Tech Since 2016</span>
-        </h2>
+<section class="hero">
+    <video autoplay muted loop playsinline>
+        <source src="şirket yer.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>
+            <span class="tr">Bilim, teknoloji ve akademik yayıncılığı tek ekosistemde buluşturuyoruz</span>
+            <span class="en">We bring science technology and academic publishing into one ecosystem</span>
+        </h1>
         <p>
-          <span data-lang="tr">Holistence Academy, Çanakkale Onsekiz Mart Üniversitesi Teknopark bünyesinde bilimsel yayıncılık ve teknoloji projeleri üretmektedir.</span>
-          <span data-lang="en">Holistence Academy produces scientific publishing and technology projects within Çanakkale Onsekiz Mart University Technopark.</span>
+            <span class="tr">Holistence Academy araştırma, yazılım geliştirme, akademik yayıncılık ve bilimsel etkinlik organizasyonları alanlarında faaliyet gösteren uluslararası bir akademik girişimdir.</span>
+            <span class="en">Holistence Academy is an international academic initiative operating in research software development academic publishing and scientific event organization.</span>
         </p>
-      </div>
-      <div class="reveal d2">
-          <div style="background:var(--dark);padding:40px;color:white;border-radius:2px;">
-              <h3 style="font-size:48px;color:var(--gold);">10+</h3>
-              <p style="text-transform:uppercase;letter-spacing:2px;font-size:12px;">
-                <span data-lang="tr">Akademik Dergi</span><span data-lang="en">Academic Journals</span>
-              </p>
-          </div>
-      </div>
+        <div class="buttons">
+            <a class="btn primary" href="iletisim.html"><span class="tr">İletişime Geç</span><span class="en">Contact</span></a>
+            <a class="btn secondary" href="about.html"><span class="tr">Hakkımızda</span><span class="en">About</span></a>
+        </div>
     </div>
-  </div>
+</section>
+
+<section>
+    <h2 style="text-align:center; font-family:'DM Serif Display'; font-size: 36px;">
+        <span class="tr">Uzmanlık Alanlarımız</span><span class="en">Our Expertise</span>
+    </h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Software</h3>
+            <p><span class="tr">Kurumsal yazılım platformları ve akademik sistemler geliştiriyoruz.</span><span class="en">We develop institutional software platforms and academic systems.</span></p>
+        </div>
+        <div class="card">
+            <h3>Publishing</h3>
+            <p><span class="tr">Uluslararası akademik dergi ve yayın süreçlerini yönetiyoruz.</span><span class="en">We manage international academic journal publishing processes.</span></p>
+        </div>
+        <div class="card">
+            <h3>Events</h3>
+            <p><span class="tr">Kongreler, konferanslar ve bilimsel etkinlik organizasyonları.</span><span class="en">Congress conferences and scientific event organizations.</span></p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="contact">
+        <div>
+            <h2 style="font-family:'DM Serif Display'; font-size: 38px;">
+                <span class="tr">Bize Ulaşın</span><span class="en">Contact Us</span>
+            </h2>
+            <p>
+                <span class="tr">Yazılım projeleri, akademik yayıncılık ve etkinlik organizasyonları için bizimle iletişime geçebilirsiniz.</span>
+                <span class="en">You can contact us for software projects academic publishing and event organization.</span>
+            </p>
+        </div>
+        <form action="https://formspree.io/f/xbdzggzn" method="POST">
+            <input type="text" name="name" placeholder="Ad / Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Mesaj / Message" required></textarea>
+            <button class="send"><span class="tr">Gönder</span><span class="en">Send</span></button>
+        </form>
+    </div>
 </section>
 
 <footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <h3 style="color:white;margin-bottom:15px;">Holistence Academy</h3>
-      <p class="footer-desc">
-        <span data-lang="tr">2016 yılından bu yana Ar-Ge, Yazılım ve Uluslararası Yayıncılık alanlarında hizmet vermekteyiz.</span>
-        <span data-lang="en">Providing services in R&D, Software, and International Publishing since 2016.</span>
-      </p>
+    <div class="footer-grid">
+        <div>
+            <img src="HA logo.png" style="height:50px; margin-bottom: 20px;">
+            <p style="color:#888; font-size: 14px;">
+                <span class="tr">2016 yılından bu yana Ar-Ge, Yazılım, Uluslararası Yayıncılık, Akademik Etkinlik ve Danışmanlık alanlarında bütünsel hizmetler.</span>
+                <span class="en">Since 2016 holistic services in R&D software international publishing academic events and consulting.</span>
+            </p>
+        </div>
+        <div><h4>HİZMETLER</h4><a href="#">Yazılım</a><a href="#">Yayıncılık</a><a href="#">Akademik Dergiler</a></div>
+        <div><h4>ETKİNLİKLER</h4><a href="#">Kongreler</a><a href="#">Sergiler</a></div>
+        <div><h4>KURUMSAL</h4><a href="about.html">Hakkımızda</a><a href="iletisim.html">İletişim</a></div>
     </div>
-    <div class="footer-col">
-      <h5><span data-lang="tr">Hızlı Bağlantılar</span><span data-lang="en">Quick Links</span></h5>
-      <ul>
-        <li><a href="about.html"><span data-lang="tr">Hakkımızda</span><span data-lang="en">About Us</span></a></li>
-        <li><a href="hizmetler.html"><span data-lang="tr">Hizmetler</span><span data-lang="en">Services</span></a></li>
-        <li><a href="iletisim.html"><span data-lang="tr">İletişim</span><span data-lang="en">Contact</span></a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 Holistence Academy. <span data-lang="tr">Tüm Hakları Saklıdır.</span><span data-lang="en">All Rights Reserved.</span></p>
-  </div>
+    <div class="footer-bottom">© 2016–2025 Holistence Academy</div>
 </footer>
 
 <script>
-// DİL DEĞİŞTİRME MANTIĞI
-function setLang(lang) {
-    localStorage.setItem('selected_lang', lang);
-    applyLang(lang);
+function setLang(lang){
+    document.body.className="lang-"+lang
+    localStorage.setItem("lang",lang)
 }
-
-function applyLang(lang) {
-    const body = document.body;
-    const buttons = document.querySelectorAll('.lang-btn');
-    
-    if (lang === 'en') {
-        body.classList.add('lang-en');
-        body.classList.remove('lang-tr');
-    } else {
-        body.classList.add('lang-tr');
-        body.classList.remove('lang-en');
-    }
-
-    buttons.forEach(btn => {
-        btn.classList.remove('active');
-        if ((lang === 'en' && btn.innerText === 'EN') || (lang === 'tr' && btn.innerText === 'TR')) {
-            btn.classList.add('active');
-        }
-    });
-}
-
-// SAYFA YÜKLENDİĞİNDE
-window.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('selected_lang') || 'tr';
-    applyLang(savedLang);
-
-    // Mevcut Reveal Animasyonlarınızın Devamı
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-});
-
-window.addEventListener('scroll', () => {
-    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
-});
-
-function toggleMenu() {
-    const menu = document.getElementById('mobMenu'); // Eğer mobil menü ID'niz buysa
-    if(menu) menu.classList.toggle('open');
+const saved=localStorage.getItem("lang")
+if(saved){setLang(saved)}
+else{
+    if(navigator.language.startsWith("tr")) setLang("tr")
+    else setLang("en")
 }
 </script>
-
 </body>
 </html>
