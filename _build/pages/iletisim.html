@@ -1,0 +1,85 @@
+<!--
+title_tr: İletişim — Holistence Academy
+title_en: Contact — Holistence Academy
+desc: Holistence Academy iletişim bilgileri, adres, WhatsApp ve iletişim formu.
+-->
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Holistence Academy</a><i></i>[[İletişim||Contact]]</div>
+    <h1>[[Bizimle <em>iletişime</em> geçin||Get in <em>touch</em> with us]]</h1>
+    <p class="lead">[[Akademik hizmetlerimiz hakkında bilgi almak, proje teklifi göndermek veya iş birliği için bize ulaşın.||Reach out for information about our academic services, to send a project proposal or to collaborate.]]</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap contact">
+    <div class="reveal">
+      <div class="info">
+        <div class="info-row"><svg><use href="#i-pin"/></svg><div>
+          <div class="lbl">[[Adres||Address]]</div>
+          <div class="val">[[Namık Kemal Mahallesi, Helvacıoğlu Sokak,<br>Han Evleri 19-21/A, Apt: 1<br>17000 Çanakkale / Türkiye||Namık Kemal District, Helvacıoğlu Street,<br>Han Evleri 19-21/A, Apt: 1<br>17000 Çanakkale / Turkey]]</div>
+        </div></div>
+        <div class="info-row"><svg><use href="#i-mail"/></svg><div>
+          <div class="lbl">[[E-posta||E-mail]]</div>
+          <div class="val"><a href="mailto:contact@holistence.com">contact@holistence.com</a></div>
+        </div></div>
+        <div class="info-row"><svg><use href="#i-chat"/></svg><div>
+          <div class="lbl">[[Telefon / WhatsApp||Phone / WhatsApp]]</div>
+          <div class="val"><a href="tel:+905306387017">+90 530 638 70 17</a> · <a href="https://wa.me/905306387017" target="_blank" rel="noopener">WhatsApp</a></div>
+        </div></div>
+        <div class="info-row"><svg><use href="#i-globe"/></svg><div>
+          <div class="lbl">Web</div>
+          <div class="val"><a href="https://holistence.com" target="_blank" rel="noopener">holistence.com</a><br><a href="https://events.holistence.com" target="_blank" rel="noopener">events.holistence.com</a></div>
+        </div></div>
+        <div class="info-row"><svg><use href="#i-clock"/></svg><div>
+          <div class="lbl">[[Çalışma Saatleri||Working Hours]]</div>
+          <div class="val">[[Pazartesi – Cuma<br>09:00 – 18:00||Monday – Friday<br>09:00 – 18:00]]</div>
+        </div></div>
+        <div class="info-row"><svg><use href="#i-building"/></svg><div>
+          <div class="lbl">[[Şirket||Company]]</div>
+          <div class="val">[[Holistence Academy Ar-Ge Yazılım Yayıncılık Eğitim Danışmanlık ve Organizasyon Ticaret Ltd. Şti.||Holistence Academy R&amp;D Software Publishing Education Consulting and Organization Trade Ltd. Co.]]<br><span class="hl">[[Vergi No:||Tax ID:]] 7340893534 · [[Sertifika No:||Certificate No:]] 51372</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- Form: FormSubmit üzerinden contact@holistence.com adresine iletilir (ilk gönderimde onay e-postası gelir). -->
+    <form class="form reveal d2" data-ajax action="https://formsubmit.co/ajax/contact@holistence.com" method="POST">
+      <input type="hidden" name="_subject" value="holistence.com — İletişim formu">
+      <input type="hidden" name="_template" value="table">
+      <div class="hp" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+      <div class="row2">
+        <div class="field"><input id="c-name" name="ad_soyad" type="text" placeholder=" " autocomplete="name" required><label for="c-name">[[Adınız Soyadınız *||Full Name *]]</label></div>
+        <div class="field"><input id="c-mail" name="email" type="email" placeholder=" " autocomplete="email" required><label for="c-mail">[[E-posta *||Email *]]</label></div>
+      </div>
+      <div class="row2">
+        <div class="field"><input id="c-tel" name="telefon" type="tel" placeholder=" " autocomplete="tel"><label for="c-tel">[[Telefon||Phone]]</label></div>
+        <div class="field"><input id="c-org" name="kurum" type="text" placeholder=" " autocomplete="organization"><label for="c-org">[[Kurum / Üniversite||Institution / University]]</label></div>
+      </div>
+      <div class="field">
+        <select id="c-svc" name="hizmet">
+          <option value="" data-tr="— Seçiniz —" data-en="— Select —">— Seçiniz —</option>
+          <option value="Akademik Dergi Yönetimi (OJS)" data-tr="Akademik Dergi Yönetimi (OJS)" data-en="Academic Journal Management (OJS)">Akademik Dergi Yönetimi (OJS)</option>
+          <option value="Kongre / Konferans Organizasyonu" data-tr="Kongre / Konferans Organizasyonu" data-en="Congress / Conference Organization">Kongre / Konferans Organizasyonu</option>
+          <option value="Anket Hazırlama ve Raporlama" data-tr="Anket Hazırlama ve Raporlama" data-en="Survey Design and Reporting">Anket Hazırlama ve Raporlama</option>
+          <option value="Danışmanlık Hizmetleri" data-tr="Danışmanlık Hizmetleri" data-en="Consulting Services">Danışmanlık Hizmetleri</option>
+          <option value="Yazılım Çözümleri" data-tr="Yazılım Çözümleri" data-en="Software Solutions">Yazılım Çözümleri</option>
+          <option value="Diğer" data-tr="Diğer" data-en="Other">Diğer</option>
+        </select>
+        <label for="c-svc">[[Hizmet Türü||Service Type]]</label>
+      </div>
+      <div class="field"><textarea id="c-msg" name="mesaj" placeholder=" " required></textarea><label for="c-msg">[[Mesajınız *||Your message *]]</label></div>
+      <button type="submit" class="btn btn-primary">[[Mesaj Gönder||Send Message]]<svg><use href="#i-arrow"/></svg></button>
+      <p class="form-msg" role="status" aria-live="polite"></p>
+      <p class="form-note">[[* ile işaretli alanlar zorunludur. Bilgileriniz üçüncü taraflarla paylaşılmaz.||Fields marked * are required. Your information is not shared with third parties.]]</p>
+    </form>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="map reveal">
+      <iframe title="Holistence Academy konum" src="https://www.google.com/maps?q=Helvac%C4%B1o%C4%9Flu+Sokak+19%2C+Namik+Kemal+Mahallesi%2C+17000+%C3%87anakkale&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>

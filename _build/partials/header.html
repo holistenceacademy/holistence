@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<script>document.documentElement.className+=' js';try{var l=localStorage.getItem('hl_lang');if(l==='en'||l==='tr')document.documentElement.lang=l;}catch(e){}</script>
-<title>Galeri — Holistence Academy</title>
-<meta name="hl-title-tr" content="Galeri — Holistence Academy">
-<meta name="hl-title-en" content="Gallery — Holistence Academy">
-<meta name="description" content="Holistence Academy kongre, sergi ve etkinliklerinden fotoğraflar.">
-<meta name="theme-color" content="#04060B">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Galeri — Holistence Academy">
-<meta property="og:description" content="Holistence Academy kongre, sergi ve etkinliklerinden fotoğraflar.">
-<meta property="og:image" content="assets/img/logo-ha.png">
-<link rel="icon" type="image/png" href="assets/img/logo-ha.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
 <!-- İkon seti -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -58,7 +36,7 @@
     </a>
     <nav aria-label="Ana menü">
       <ul class="menu">
-        <li><a href="index.html"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a></li>
+        <li><a href="index.html" aria-current="page"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a></li>
         <li><a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About</span></a></li>
         <li><a href="hizmetler.html"><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></a></li>
         <li><a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
@@ -70,7 +48,7 @@
             <a href="sergiler.html"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></a>
           </div>
         </li>
-        <li><a href="galeri.html" aria-current="page"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a></li>
+        <li><a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a></li>
         <li><a href="kurumsal.html"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a></li>
       </ul>
     </nav>
@@ -97,75 +75,8 @@
   <a href="etkinlikler.html"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></a>
   <a class="child" href="kongreler.html"><span data-l="tr">↳ Kongreler</span><span data-l="en">↳ Congresses</span></a>
   <a class="child" href="sergiler.html"><span data-l="tr">↳ Sergiler</span><span data-l="en">↳ Exhibitions</span></a>
-  <a href="galeri.html" aria-current="page"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a>
+  <a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a>
   <a href="kurumsal.html"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a>
   <a href="iletisim.html"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
 </div>
 
-<main id="main">
-
-<section class="page-hero">
-  <div class="wrap">
-    <div class="crumb"><a href="index.html">Holistence Academy</a><i></i><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></div>
-    <h1><span data-l="tr">Fotoğraf <em>galerimiz</em></span><span data-l="en">Our photo <em>gallery</em></span></h1>
-    <p class="lead"><span data-l="tr">Kongre, sergi ve etkinliklerimizden kareler.</span><span data-l="en">Moments from our congresses, exhibitions and events.</span></p>
-  </div>
-</section>
-
-<section class="section" id="gallery" style="padding-top:60px">
-  <div class="wrap">
-    <div class="filters" role="group" aria-label="Filtre / Filter">
-      <button type="button" data-filter="all" aria-pressed="true"><span data-l="tr">Tümü</span><span data-l="en">All</span></button>
-      <button type="button" data-filter="kongre" aria-pressed="false"><span data-l="tr">Kongreler</span><span data-l="en">Congresses</span></button>
-      <button type="button" data-filter="sergi" aria-pressed="false"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></button>
-      <button type="button" data-filter="etkinlik" aria-pressed="false"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></button>
-      <button type="button" data-filter="ofis" aria-pressed="false"><span data-l="tr">Ofis</span><span data-l="en">Office</span></button>
-    </div>
-    <div data-grid aria-live="polite"><div class="g-empty"><span data-l="tr">Yükleniyor…</span><span data-l="en">Loading…</span></div></div>
-  </div>
-</section>
-</main>
-
-<!-- ============ FOOTER ============ -->
-<footer class="footer">
-  <div class="wrap">
-    <div class="f-top">
-      <div class="f-brand">
-        <img src="assets/img/logo-ha.png" alt="Holistence Academy" width="64" height="60" loading="lazy">
-        <p><span data-l="tr">2016 yılından bu yana Ar-Ge, Yazılım, Uluslararası Yayıncılık, Akademik Etkinlik ve Danışmanlık alanlarında bütünsel hizmetler.</span><span data-l="en">Since 2016, providing holistic services in R&amp;D, Software, International Publishing, Academic Events and Consulting.</span></p>
-        <div class="f-legal">
-          <span data-l="tr">Vergi Dairesi: Çanakkale — Vergi No: 7340893534</span><span data-l="en">Tax Office: Çanakkale — Tax ID: 7340893534</span><br>
-          <span data-l="tr">Sertifika No: 51372</span><span data-l="en">Certificate No: 51372</span>
-        </div>
-      </div>
-      <div class="f-col"><h4><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></h4><ul>
-        <li><a href="hizmetler.html"><span data-l="tr">Tüm Hizmetler</span><span data-l="en">All Services</span></a></li>
-        <li><a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
-        <li><a href="https://publications.holistence.com/" target="_blank" rel="noopener"><span data-l="tr">Yayıncılık</span><span data-l="en">Publishing</span></a></li>
-        <li><a href="https://journals.gen.tr/" target="_blank" rel="noopener"><span data-l="tr">Akademik Dergiler</span><span data-l="en">Academic Journals</span></a></li>
-      </ul></div>
-      <div class="f-col"><h4><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></h4><ul>
-        <li><a href="etkinlikler.html"><span data-l="tr">Bilimsel Etkinlikler</span><span data-l="en">Scientific Events</span></a></li>
-        <li><a href="kongreler.html"><span data-l="tr">Kongreler</span><span data-l="en">Congresses</span></a></li>
-        <li><a href="sergiler.html"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></a></li>
-        <li><a href="https://events.holistence.com/" target="_blank" rel="noopener"><span data-l="tr">Events Platformu</span><span data-l="en">Events Platform</span></a></li>
-      </ul></div>
-      <div class="f-col"><h4><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></h4><ul>
-        <li><a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About Us</span></a></li>
-        <li><a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a></li>
-        <li><a href="kurumsal.html"><span data-l="tr">Kurumsal Kimlik</span><span data-l="en">Corporate Identity</span></a></li>
-        <li><a href="iletisim.html"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a></li>
-      </ul></div>
-    </div>
-    <div class="f-bottom">
-      <p>© 2016–<span data-year>2026</span> <strong>Holistence Academy</strong>. <span data-l="tr">Tüm Hakları Saklıdır.</span><span data-l="en">All Rights Reserved.</span></p>
-      <p><span data-l="tr">Çanakkale Onsekiz Mart Üniversitesi Teknopark · Çanakkale / Türkiye</span><span data-l="en">Çanakkale Onsekiz Mart University Technopark · Çanakkale / Turkey</span></p>
-    </div>
-  </div>
-  <div class="f-word" aria-hidden="true">Holistence</div>
-</footer>
-
-<script src="assets/js/main.js" defer></script>
-<script src="assets/js/gallery.js" defer></script>
-</body>
-</html>
