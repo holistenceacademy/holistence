@@ -445,3 +445,7 @@ body.no-scroll{overflow:hidden}
 .tlink:hover{border-color:var(--cyan)}
 .net-label.has-url{pointer-events:auto;cursor:pointer}
 .net-label.has-url:hover b{color:var(--fg);border-color:var(--cyan)}
+.f-contact{display:grid;gap:10px;margin-top:20px}
+.f-contact a{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--fg-2);transition:color .2s}
+.f-contact a:hover{color:var(--cyan)}
+.f-contact svg{flex:none;width:17px;height:17px;margin-top:2px;color:var(--cyan)}
