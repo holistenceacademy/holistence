@@ -441,3 +441,7 @@ body.no-scroll{overflow:hidden}
 .net-label b{font-weight:700;margin-left:14px;padding:4px 9px;border-radius:999px;background:rgba(4,6,11,.55);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(4px)}
 .net-label.big b{color:var(--gold);border-color:rgba(227,191,106,.35);font-size:13px}
 .net-label i{display:none}
+.tlink{color:var(--cyan);border-bottom:1px solid rgba(63,224,208,.4);font-weight:700;transition:border-color .2s}
+.tlink:hover{border-color:var(--cyan)}
+.net-label.has-url{pointer-events:auto;cursor:pointer}
+.net-label.has-url:hover b{color:var(--fg);border-color:var(--cyan)}

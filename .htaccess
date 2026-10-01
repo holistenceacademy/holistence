@@ -15,3 +15,6 @@ DirectoryIndex index.html index.php
 # Kaynak klasörleri dışarıya kapalı
 RedirectMatch 404 ^/(_build|_kaynak|\.git)(/|$)
 RedirectMatch 404 ^/web/(_build|_kaynak|\.git)(/|$)
+# Şimdilik kaldırılan sayfalar
+RedirectMatch 302 ^(.*/)(kongreler|sergiler)\.html$ $1etkinlikler.html
+RedirectMatch 302 ^(.*/)galeri\.html$ $1

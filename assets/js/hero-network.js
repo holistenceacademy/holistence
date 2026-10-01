@@ -16,11 +16,11 @@
 
   /* ---------- Ana düğümler (etiketli) ---------- */
   var HUBS = [
-    { tr: 'Holistence Publications', en: 'Holistence Publications', big: 1 },
-    { tr: 'journals.gen.tr', en: 'journals.gen.tr', big: 1 },
-    { tr: 'Holivent', en: 'Holivent', big: 1 },
-    { tr: 'IDA Campus', en: 'IDA Campus' },
-    { tr: 'Holistence Events', en: 'Holistence Events' },
+    { tr: 'Holistence Publications', en: 'Holistence Publications', big: 1, url: 'https://publications.holistence.com/' },
+    { tr: 'journals.gen.tr', en: 'journals.gen.tr', big: 1, url: 'https://journals.gen.tr/' },
+    { tr: 'Holivent', en: 'Holivent', big: 1, url: 'https://holivent.com/' },
+    { tr: 'IDA Campus', en: 'IDA Campus', url: 'https://idacampus.com/' },
+    { tr: 'Holistence Events', en: 'Holistence Events', url: 'https://events.holistence.com/' },
     { tr: 'Ar-Ge', en: 'R&D' },
     { tr: 'Yazılım', en: 'Software' },
     { tr: 'Akademik Kitap', en: 'Academic Books' },
@@ -154,8 +154,9 @@
 
   /* ---------- Etiketler ---------- */
   var labels = HUBS.map(function (hb, k) {
-    var el = document.createElement('span');
-    el.className = 'net-label' + (hb.big ? ' big' : '');
+    var el = document.createElement(hb.url ? 'a' : 'span');
+    el.className = 'net-label' + (hb.big ? ' big' : '') + (hb.url ? ' has-url' : '');
+    if (hb.url) { el.href = hb.url; el.target = '_blank'; el.rel = 'noopener'; el.tabIndex = -1; }
     el.innerHTML = '<i></i><b data-l="tr">' + hb.tr + '</b><b data-l="en">' + hb.en + '</b>';
     labelLayer.appendChild(el); return el;
   });
