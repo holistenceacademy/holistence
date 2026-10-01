@@ -14,7 +14,7 @@ Her sayfa dosyası başında şu bilgi bloğunu taşır:
 title_tr: Sayfa başlığı
 title_en: Page title
 desc: Arama motoru açıklaması
-extra: globe        (isteğe bağlı: globe | gallery)
+extra: network      (isteğe bağlı: network | gallery)
 -->
 """
 import html
@@ -50,9 +50,8 @@ HEAD = '''<!DOCTYPE html>
 
 SCRIPTS = {
     None: '',
-    'globe': '<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>\n'
-             '<script src="assets/js/land-dots.js" defer></script>\n'
-             '<script src="assets/js/hero-globe.js" defer></script>\n',
+    'network': '<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>\n'
+             '<script src="assets/js/hero-network.js" defer></script>\n',
     'gallery': '<script src="assets/js/gallery.js" defer></script>\n',
 }
 

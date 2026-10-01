@@ -1,0 +1,17 @@
+# Holistence — sunucu ayarları (Natro / LiteSpeed)
+# HTML sayfaları önbellekte eski kalmasın: her güncelleme hemen görünsün.
+<IfModule LiteSpeed>
+  CacheLookup off
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=3600"
+  </FilesMatch>
+</IfModule>
+DirectoryIndex index.html index.php
+# Kaynak klasörleri dışarıya kapalı
+RedirectMatch 404 ^/(_build|_kaynak|\.git)(/|$)
+RedirectMatch 404 ^/web/(_build|_kaynak|\.git)(/|$)

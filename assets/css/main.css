@@ -424,3 +424,20 @@ body.no-scroll{overflow:hidden}
 .cards.c2{grid-template-columns:1fr 1fr}
 @media (max-width:960px){.feat.c3{grid-template-columns:1fr}}
 @media (max-width:640px){.cards.c2{grid-template-columns:1fr}}
+.mods-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:-20px 0 22px}
+.mods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-bottom:clamp(56px,8vw,110px);border-bottom:1px solid var(--line)}
+.mod{padding:24px 22px;border-radius:var(--radius);border:1px solid var(--line);background:var(--ink-2);transition:border-color .3s,transform .4s var(--ease)}
+.mod:hover{border-color:rgba(63,224,208,.35);transform:translateY(-3px)}
+.mod-ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;background:rgba(227,191,106,.1);border:1px solid rgba(227,191,106,.28);color:var(--gold)}
+.mod-ic svg{width:20px;height:20px}
+.mod h3{font-family:var(--font-display);font-weight:400;font-size:20px;line-height:1.25;margin-bottom:8px}
+.mod p{font-size:14.5px;line-height:1.7;color:var(--fg-2)}
+.mod:nth-child(10){grid-column:span 3}
+@media (max-width:960px){.mods{grid-template-columns:1fr 1fr}.mod:nth-child(10){grid-column:span 2}}
+@media (max-width:640px){.mods{grid-template-columns:1fr}.mod:nth-child(10){grid-column:auto}}
+/* Bilgi ağı etiketleri */
+.net-labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.net-label{position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--fg-2);will-change:transform,opacity}
+.net-label b{font-weight:700;margin-left:14px;padding:4px 9px;border-radius:999px;background:rgba(4,6,11,.55);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(4px)}
+.net-label.big b{color:var(--gold);border-color:rgba(227,191,106,.35);font-size:13px}
+.net-label i{display:none}
