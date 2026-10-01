@@ -1,236 +1,229 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>document.documentElement.className+=' js';try{var l=localStorage.getItem('hl_lang');if(l==='en'||l==='tr')document.documentElement.lang=l;}catch(e){}</script>
 <title>İletişim — Holistence Academy</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<style>
-:root{--dark:#060D18;--dark2:#0C1830;--navy:#0F2545;--teal:#0D7E8A;--teal-l:#12A8B8;--gold:#C9A84C;--gold-l:#E8C97A;--white:#F8F6F2;--cream:#EEE8DC;--muted:#8096B2;--text:#1E3048;--border:rgba(15,37,69,0.1);}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{background:var(--white);color:var(--text);font-family:"Inter",sans-serif;overflow-x:hidden;}
-::selection{background:var(--teal);color:#fff;}::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold),var(--teal));}
-img{max-width:100%;display:block;}a{text-decoration:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:rgba(6,13,24,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.18);}
-.nav-logo{display:flex;align-items:center;}.nav-logo-text{line-height:1;}
-.nav-logo-main{display:block;font-family:"DM Serif Display",serif;font-size:17px;letter-spacing:0.18em;color:var(--white);text-transform:uppercase;}
-.nav-logo-sub{display:block;font-size:8px;font-weight:600;letter-spacing:0.45em;color:var(--teal-l);text-transform:uppercase;margin-top:2px;}
-.nav-links{display:flex;list-style:none;flex:1;justify-content:center;}
-.nav-links>li>a{padding:0 11px;height:72px;display:flex;align-items:center;font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(248,246,242,.55);transition:color .3s;white-space:nowrap;}
-.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--gold);}
-.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
-.lang-btn{font-size:10px;font-weight:700;letter-spacing:.15em;padding:6px 12px;border:1px solid rgba(201,168,76,.3);color:rgba(248,246,242,.45);background:transparent;cursor:pointer;transition:all .3s;font-family:"Inter",sans-serif;}
-.lang-btn.active{background:var(--gold);color:var(--dark);border-color:var(--gold);}.lang-btn:first-child{border-right:none;}
-.nav-cta{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:10px 18px;transition:background .3s;white-space:nowrap;}
-.nav-cta:hover{background:var(--gold-l);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--gold);}
-.mob-menu{display:none;position:fixed;inset:0;top:72px;background:rgba(6,13,24,.99);z-index:999;padding:24px;flex-direction:column;overflow-y:auto;}
-.mob-menu.open{display:flex;}
-.mob-menu a{display:block;padding:13px 0;font-size:13px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(248,246,242,.5);border-bottom:1px solid rgba(255,255,255,.05);transition:color .3s;}
-.mob-menu a:hover{color:var(--teal-l);}
-/* PAGE HERO */
-.page-hero{padding-top:72px;background:var(--dark);min-height:260px;display:flex;align-items:flex-end;position:relative;overflow:hidden;}
-.page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(13,126,138,.22) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 10% 60%,rgba(26,61,110,.28) 0%,transparent 70%);}
-.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:80px 80px;}
-.page-hero-inner{position:relative;z-index:2;padding:52px;max-width:1200px;width:100%;}
-.page-breadcrumb{font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--teal-l);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.page-breadcrumb a{color:rgba(248,246,242,.4);}.page-breadcrumb span{color:rgba(248,246,242,.2);}
-.page-title{font-family:"DM Serif Display",serif;font-size:clamp(32px,5vw,62px);font-weight:400;color:var(--white);line-height:1.1;}
-.page-title em{font-style:italic;color:var(--teal-l);}
-/* CONTACT LAYOUT */
-.contact-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:0;background:var(--dark2);}
-/* INFO SIDE */
-.contact-info{padding:64px 48px;display:flex;flex-direction:column;gap:32px;background:var(--dark);border-right:1px solid rgba(255,255,255,.05);}
-.contact-info-title{font-family:"DM Serif Display",serif;font-size:28px;color:var(--white);margin-bottom:4px;}
-.contact-info-sub{font-size:13px;font-weight:300;color:rgba(248,246,242,.4);line-height:1.7;margin-bottom:8px;}
-.info-card{display:flex;gap:18px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.05);}
-.info-card:last-child{border-bottom:none;}
-.info-icon-box{width:44px;height:44px;border:1px solid rgba(18,168,184,.3);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-.info-label{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--teal-l);margin-bottom:4px;}
-.info-value{font-size:14px;font-weight:300;color:rgba(248,246,242,.75);line-height:1.6;}
-.info-value a{color:rgba(248,246,242,.75);transition:color .3s;}
-.info-value a:hover{color:var(--teal-l);}
-/* FORM SIDE */
-.contact-form-side{padding:64px 52px;}
-.form-title{font-family:"DM Serif Display",serif;font-size:28px;color:var(--white);margin-bottom:6px;}
-.form-sub{font-size:13px;font-weight:300;color:rgba(248,246,242,.4);margin-bottom:36px;line-height:1.7;}
-.cf{display:flex;flex-direction:column;gap:16px;}
-.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.cf label{display:block;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,246,242,.4);margin-bottom:6px;}
-.cf input,.cf textarea,.cf select{width:100%;padding:14px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--white);font-family:"Inter",sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color .3s;resize:none;}
-.cf input:focus,.cf textarea:focus,.cf select:focus{border-color:var(--teal);}
-.cf input::placeholder,.cf textarea::placeholder{color:rgba(248,246,242,.25);}
-.cf select option{background:var(--dark2);color:var(--white);}
-.cf textarea{min-height:140px;}
-.cf-btn{font-family:"Inter",sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--dark);background:var(--teal);border:none;padding:18px 40px;cursor:pointer;transition:background .3s;align-self:flex-start;}
-.cf-btn:hover{background:var(--teal-l);}
-.cf-note{font-size:11px;font-weight:300;color:rgba(248,246,242,.3);line-height:1.7;margin-top:8px;}
-/* MAP */
-.map-section{background:var(--dark2);}
-.map-section iframe{width:100%;height:420px;border:none;filter:grayscale(40%) contrast(1.1);}
-/* SUCCESS MSG */
-.success-msg{display:none;background:rgba(13,126,138,.15);border:1px solid var(--teal);padding:20px 24px;color:var(--teal-l);font-size:14px;font-weight:300;margin-top:16px;line-height:1.7;}
-/* FOOTER */
-footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);}
-.footer-top{padding:64px 52px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid rgba(255,255,255,.05);max-width:1200px;margin:0 auto;}
-.footer-brand-name{font-family:"DM Serif Display",serif;font-size:18px;letter-spacing:.12em;color:var(--white);text-transform:uppercase;margin-bottom:4px;}
-.footer-brand-sub{font-size:8px;font-weight:700;letter-spacing:.4em;color:var(--teal-l);text-transform:uppercase;margin-bottom:14px;}
-.footer-desc{font-size:12px;font-weight:300;color:rgba(248,246,242,.35);line-height:1.9;max-width:260px;}
-.footer-col h5{font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--teal-l);margin-bottom:18px;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-col ul li a{font-size:12px;font-weight:300;color:rgba(248,246,242,.4);transition:color .3s;}
-.footer-col ul li a:hover{color:var(--teal-l);}
-.footer-bottom{padding:22px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1200px;margin:0 auto;}
-.footer-bottom p{font-size:11px;font-weight:300;color:rgba(248,246,242,.22);}
-.footer-bottom strong{color:var(--teal-l);font-weight:400;}
-@media(max-width:1100px){.nav-links{display:none!important;}.nav-right .nav-cta{display:none!important;}.hamburger{display:flex!important;}nav{padding:0 20px;}}
-@media(max-width:900px){.contact-wrap{grid-template-columns:1fr;}.contact-info{padding:44px 24px;}.contact-form-side{padding:44px 24px;}.cf-row{grid-template-columns:1fr;}.page-hero-inner{padding:40px 24px;}.footer-top{grid-template-columns:1fr 1fr;padding:40px 24px;gap:28px;}.footer-bottom{padding:20px 24px;}}
-@media(max-width:600px){.footer-top{grid-template-columns:1fr;}}
-</style>
+<meta name="hl-title-tr" content="İletişim — Holistence Academy">
+<meta name="hl-title-en" content="Contact — Holistence Academy">
+<meta name="description" content="Holistence Academy iletişim bilgileri, adres, WhatsApp ve iletişim formu.">
+<meta name="theme-color" content="#04060B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="İletişim — Holistence Academy">
+<meta property="og:description" content="Holistence Academy iletişim bilgileri, adres, WhatsApp ve iletişim formu.">
+<meta property="og:image" content="assets/img/logo-ha.png">
+<link rel="icon" type="image/png" href="assets/img/logo-ha.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-<nav id="mainNav">
-  <a href="index.html" class="nav-logo"><div class="nav-logo-text"><span class="nav-logo-main">Holistence</span><span class="nav-logo-sub">Academy</span></div></a>
-  <ul class="nav-links"><li><a href="index.html">Ana Sayfa</a></li><li><a href="hizmetler.html">Hizmetler</a></li><li><a href="yazilimlar.html">Yazılımlar</a></li><li><a href="kongreler.html">Kongreler</a></li><li><a href="sergiler.html">Sergiler</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="kurumsal.html">Kurumsal</a></li><li><a href="iletisim.html" class="active">İletişim</a></li></ul>
-  <div class="nav-right"><div style="display:flex;align-items:center;"><button class="lang-btn active">TR</button><button class="lang-btn">EN</button></div><a href="iletisim.html" class="nav-cta">Bize Ulaşın</a></div>
-  <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
-</nav>
-<div class="mob-menu" id="mobMenu"><a href="index.html">Ana Sayfa</a><a href="hizmetler.html">Hizmetler</a><a href="yazilimlar.html">Yazılımlar</a><a href="kongreler.html">Kongreler</a><a href="sergiler.html">Sergiler</a><a href="galeri.html">Galeri</a><a href="kurumsal.html">Kurumsal</a><a href="iletisim.html">İletişim</a></div>
+<!-- İkon seti -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+    <symbol id="i-journal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4 20h16L14 9V3"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l10 6H2z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  </defs>
+</svg>
+
+<a class="sr-only" href="#main">İçeriğe geç</a>
+
+<!-- ============ NAVİGASYON ============ -->
+<header class="nav" id="top">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" aria-label="Holistence Academy">
+      <img src="assets/img/logo-ha.png" alt="" width="47" height="44">
+      <span class="brand-txt">Holistence<small>ACADEMY</small></span>
+    </a>
+    <nav aria-label="Ana menü">
+      <ul class="menu">
+        <li><a href="index.html"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a></li>
+        <li><a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About</span></a></li>
+        <li><a href="hizmetler.html"><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></a></li>
+        <li><a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
+        <li class="has-sub">
+          <button type="button" aria-expanded="false"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span><svg class="chev"><use href="#i-chev"/></svg></button>
+          <div class="sub">
+            <a href="etkinlikler.html"><span data-l="tr">Tüm Etkinlikler</span><span data-l="en">All Events</span></a>
+            <a href="kongreler.html"><span data-l="tr">Kongreler</span><span data-l="en">Congresses</span></a>
+            <a href="sergiler.html"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></a>
+          </div>
+        </li>
+        <li><a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a></li>
+        <li><a href="kurumsal.html"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang" role="group" aria-label="Dil / Language">
+        <button type="button" data-set-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="iletisim.html" aria-current="page" class="btn btn-primary" data-magnetic><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
+      <button class="burger" type="button" aria-label="Menü" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="lang" role="group" aria-label="Dil / Language">
+    <button type="button" data-set-lang="tr" aria-pressed="true">TR</button>
+    <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+  </div>
+  <a href="index.html"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a>
+  <a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About</span></a>
+  <a href="hizmetler.html"><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></a>
+  <a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a>
+  <a href="etkinlikler.html"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></a>
+  <a class="child" href="kongreler.html"><span data-l="tr">↳ Kongreler</span><span data-l="en">↳ Congresses</span></a>
+  <a class="child" href="sergiler.html"><span data-l="tr">↳ Sergiler</span><span data-l="en">↳ Exhibitions</span></a>
+  <a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a>
+  <a href="kurumsal.html"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a>
+  <a href="iletisim.html" aria-current="page"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
+</div>
+
+<main id="main">
 
 <section class="page-hero">
-  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
-  <div class="page-hero-inner">
-    <div class="page-breadcrumb"><a href="index.html">Ana Sayfa</a><span>/</span><span style="color:var(--teal-l)">İletişim</span></div>
-    <h1 class="page-title">Bizimle <em>İletişime</em> Geçin</h1>
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Holistence Academy</a><i></i><span data-l="tr">İletişim</span><span data-l="en">Contact</span></div>
+    <h1><span data-l="tr">Bizimle <em>iletişime</em> geçin</span><span data-l="en">Get in <em>touch</em> with us</span></h1>
+    <p class="lead"><span data-l="tr">Akademik hizmetlerimiz hakkında bilgi almak, proje teklifi göndermek veya iş birliği için bize ulaşın.</span><span data-l="en">Reach out for information about our academic services, to send a project proposal or to collaborate.</span></p>
   </div>
 </section>
 
-<!-- CONTACT -->
-<div class="contact-wrap">
-  <!-- INFO -->
-  <div class="contact-info">
-    <div>
-      <div class="contact-info-title">İletişim Bilgilerimiz</div>
-      <div class="contact-info-sub">Akademik hizmetlerimiz hakkında bilgi almak, proje teklifi göndermek veya iş birliği için bize ulaşın.</div>
-    </div>
-    <div class="info-card">
-      <div class="info-icon-box">📍</div>
-      <div>
-        <div class="info-label">Adres</div>
-        <div class="info-value">Çanakkale, Türkiye<br><span style="font-size:12px;color:rgba(248,246,242,.35);">Holistence Academy</span></div>
+<section class="section">
+  <div class="wrap contact">
+    <div class="reveal">
+      <div class="info">
+        <div class="info-row"><svg><use href="#i-pin"/></svg><div>
+          <div class="lbl"><span data-l="tr">Adres</span><span data-l="en">Address</span></div>
+          <div class="val"><span data-l="tr">Namık Kemal Mahallesi, Helvacıoğlu Sokak,<br>Han Evleri 19-21/A, Apt: 1<br>17000 Çanakkale / Türkiye</span><span data-l="en">Namık Kemal District, Helvacıoğlu Street,<br>Han Evleri 19-21/A, Apt: 1<br>17000 Çanakkale / Turkey</span></div>
+        </div></div>
+        <div class="info-row"><svg><use href="#i-mail"/></svg><div>
+          <div class="lbl"><span data-l="tr">E-posta</span><span data-l="en">E-mail</span></div>
+          <div class="val"><a href="mailto:contact@holistence.com">contact@holistence.com</a></div>
+        </div></div>
+        <div class="info-row"><svg><use href="#i-chat"/></svg><div>
+          <div class="lbl"><span data-l="tr">Telefon / WhatsApp</span><span data-l="en">Phone / WhatsApp</span></div>
+          <div class="val"><a href="tel:+905306387017">+90 530 638 70 17</a> · <a href="https://wa.me/905306387017" target="_blank" rel="noopener">WhatsApp</a></div>
+        </div></div>
+        <div class="info-row"><svg><use href="#i-globe"/></svg><div>
+          <div class="lbl">Web</div>
+          <div class="val"><a href="https://holistence.com" target="_blank" rel="noopener">holistence.com</a><br><a href="https://events.holistence.com" target="_blank" rel="noopener">events.holistence.com</a></div>
+        </div></div>
+        <div class="info-row"><svg><use href="#i-clock"/></svg><div>
+          <div class="lbl"><span data-l="tr">Çalışma Saatleri</span><span data-l="en">Working Hours</span></div>
+          <div class="val"><span data-l="tr">Pazartesi – Cuma<br>09:00 – 18:00</span><span data-l="en">Monday – Friday<br>09:00 – 18:00</span></div>
+        </div></div>
+        <div class="info-row"><svg><use href="#i-building"/></svg><div>
+          <div class="lbl"><span data-l="tr">Şirket</span><span data-l="en">Company</span></div>
+          <div class="val"><span data-l="tr">Holistence Academy Ar-Ge Yazılım Yayıncılık Eğitim Danışmanlık ve Organizasyon Ticaret Ltd. Şti.</span><span data-l="en">Holistence Academy R&amp;D Software Publishing Education Consulting and Organization Trade Ltd. Co.</span><br><span class="hl"><span data-l="tr">Vergi No:</span><span data-l="en">Tax ID:</span> 7340893534 · <span data-l="tr">Sertifika No:</span><span data-l="en">Certificate No:</span> 51372</span></div>
+        </div></div>
       </div>
     </div>
-    <div class="info-card">
-      <div class="info-icon-box">📞</div>
-      <div>
-        <div class="info-label">Telefon</div>
-        <div class="info-value"><a href="tel:+905306387017">+90 530 638 7017</a></div>
-      </div>
-    </div>
-    <div class="info-card">
-      <div class="info-icon-box">✉️</div>
-      <div>
-        <div class="info-label">E-posta</div>
-        <div class="info-value"><a href="mailto:info@holistence.com">info@holistence.com</a></div>
-      </div>
-    </div>
-    <div class="info-card">
-      <div class="info-icon-box">🌐</div>
-      <div>
-        <div class="info-label">Web</div>
-        <div class="info-value"><a href="https://holistence.com" target="_blank">holistence.com</a><br><a href="https://events.holistence.com" target="_blank" style="font-size:12px;">events.holistence.com</a></div>
-      </div>
-    </div>
-    <div class="info-card">
-      <div class="info-icon-box">🕐</div>
-      <div>
-        <div class="info-label">Çalışma Saatleri</div>
-        <div class="info-value">Pazartesi – Cuma<br>09:00 – 18:00</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- FORM -->
-  <div class="contact-form-side">
-    <div class="form-title">Mesaj Gönderin</div>
-    <div class="form-sub">Projeniz için en hızlı şekilde size geri döneceğiz. Tüm sorularınız için formu doldurun.</div>
-    <div class="cf" id="contactForm">
-      <div class="cf-row">
-        <div>
-          <label>Adınız Soyadınız *</label>
-          <input type="text" id="name" placeholder="Ad Soyad" required>
-        </div>
-        <div>
-          <label>E-posta Adresiniz *</label>
-          <input type="email" id="email" placeholder="ornek@email.com" required>
-        </div>
+    <!-- Form: FormSubmit üzerinden contact@holistence.com adresine iletilir (ilk gönderimde onay e-postası gelir). -->
+    <form class="form reveal d2" data-ajax action="https://formsubmit.co/ajax/contact@holistence.com" method="POST">
+      <input type="hidden" name="_subject" value="holistence.com — İletişim formu">
+      <input type="hidden" name="_template" value="table">
+      <div class="hp" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+      <div class="row2">
+        <div class="field"><input id="c-name" name="ad_soyad" type="text" placeholder=" " autocomplete="name" required><label for="c-name"><span data-l="tr">Adınız Soyadınız *</span><span data-l="en">Full Name *</span></label></div>
+        <div class="field"><input id="c-mail" name="email" type="email" placeholder=" " autocomplete="email" required><label for="c-mail"><span data-l="tr">E-posta *</span><span data-l="en">Email *</span></label></div>
       </div>
-      <div class="cf-row">
-        <div>
-          <label>Telefon</label>
-          <input type="tel" id="phone" placeholder="+90 5xx xxx xx xx">
-        </div>
-        <div>
-          <label>Kurum / Üniversite</label>
-          <input type="text" id="org" placeholder="Kurum adınız">
-        </div>
+      <div class="row2">
+        <div class="field"><input id="c-tel" name="telefon" type="tel" placeholder=" " autocomplete="tel"><label for="c-tel"><span data-l="tr">Telefon</span><span data-l="en">Phone</span></label></div>
+        <div class="field"><input id="c-org" name="kurum" type="text" placeholder=" " autocomplete="organization"><label for="c-org"><span data-l="tr">Kurum / Üniversite</span><span data-l="en">Institution / University</span></label></div>
       </div>
-      <div>
-        <label>Hizmet Türü</label>
-        <select id="service">
-          <option value="">Seçiniz...</option>
-          <option>Akademik Dergi Yönetimi (OJS)</option>
-          <option>Kongre / Konferans Organizasyonu</option>
-          <option>Anket Hazırlama ve Raporlama</option>
-          <option>Danışmanlık Hizmetleri</option>
-          <option>Yazılım Çözümleri</option>
-          <option>Diğer</option>
+      <div class="field">
+        <select id="c-svc" name="hizmet">
+          <option value="" data-tr="— Seçiniz —" data-en="— Select —">— Seçiniz —</option>
+          <option value="Akademik Dergi Yönetimi (OJS)" data-tr="Akademik Dergi Yönetimi (OJS)" data-en="Academic Journal Management (OJS)">Akademik Dergi Yönetimi (OJS)</option>
+          <option value="Kongre / Konferans Organizasyonu" data-tr="Kongre / Konferans Organizasyonu" data-en="Congress / Conference Organization">Kongre / Konferans Organizasyonu</option>
+          <option value="Anket Hazırlama ve Raporlama" data-tr="Anket Hazırlama ve Raporlama" data-en="Survey Design and Reporting">Anket Hazırlama ve Raporlama</option>
+          <option value="Danışmanlık Hizmetleri" data-tr="Danışmanlık Hizmetleri" data-en="Consulting Services">Danışmanlık Hizmetleri</option>
+          <option value="Yazılım Çözümleri" data-tr="Yazılım Çözümleri" data-en="Software Solutions">Yazılım Çözümleri</option>
+          <option value="Diğer" data-tr="Diğer" data-en="Other">Diğer</option>
         </select>
+        <label for="c-svc"><span data-l="tr">Hizmet Türü</span><span data-l="en">Service Type</span></label>
       </div>
-      <div>
-        <label>Mesajınız *</label>
-        <textarea id="message" placeholder="Projeniz veya ihtiyacınız hakkında kısaca bilgi verin..." required></textarea>
-      </div>
-      <button class="cf-btn" onclick="sendForm()">Mesaj Gönder →</button>
-      <div class="cf-note">* ile işaretli alanlar zorunludur. Bilgileriniz üçüncü taraflarla paylaşılmaz.</div>
-      <div class="success-msg" id="successMsg">✅ Mesajınız başarıyla iletildi! En kısa sürede sizinle iletişime geçeceğiz.</div>
+      <div class="field"><textarea id="c-msg" name="mesaj" placeholder=" " required></textarea><label for="c-msg"><span data-l="tr">Mesajınız *</span><span data-l="en">Your message *</span></label></div>
+      <button type="submit" class="btn btn-primary"><span data-l="tr">Mesaj Gönder</span><span data-l="en">Send Message</span><svg><use href="#i-arrow"/></svg></button>
+      <p class="form-msg" role="status" aria-live="polite"></p>
+      <p class="form-note"><span data-l="tr">* ile işaretli alanlar zorunludur. Bilgileriniz üçüncü taraflarla paylaşılmaz.</span><span data-l="en">Fields marked * are required. Your information is not shared with third parties.</span></p>
+    </form>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="map reveal">
+      <iframe title="Holistence Academy konum" src="https://www.google.com/maps?q=Helvac%C4%B1o%C4%9Flu+Sokak+19%2C+Namik+Kemal+Mahallesi%2C+17000+%C3%87anakkale&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>
   </div>
-</div>
+</section>
+</main>
 
-<!-- MAP -->
-<div class="map-section">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96382.93!2d26.3935!3d40.1553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b1cef85012f251%3A0x4d07bc0aa1e9fea1!2sÇanakkale!5e0!3m2!1str!2str!4v1"
-    allowfullscreen="" loading="lazy">
-  </iframe>
-</div>
-
-<footer>
-  <div class="footer-top">
-    <div><div class="footer-brand-name">Holistence</div><div class="footer-brand-sub">Academy</div><p class="footer-desc">Akademik yayıncılık, etkinlik organizasyonu ve danışmanlık hizmetleri.</p></div>
-    <div class="footer-col"><h5>Hizmetler</h5><ul><li><a href="hizmetler.html">Dergi Yönetimi</a></li><li><a href="hizmetler.html">Etkinlik Org.</a></li><li><a href="hizmetler.html">Danışmanlık</a></li></ul></div>
-    <div class="footer-col"><h5>Kurumsal</h5><ul><li><a href="kurumsal.html">Hakkımızda</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="iletisim.html">İletişim</a></li></ul></div>
-    <div class="footer-col"><h5>Etkinlikler</h5><ul><li><a href="kongreler.html">Kongreler</a></li><li><a href="sergiler.html">Sergiler</a></li></ul></div>
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <img src="assets/img/logo-ha.png" alt="Holistence Academy" width="64" height="60" loading="lazy">
+        <p><span data-l="tr">2016 yılından bu yana Ar-Ge, Yazılım, Uluslararası Yayıncılık, Akademik Etkinlik ve Danışmanlık alanlarında bütünsel hizmetler.</span><span data-l="en">Since 2016, providing holistic services in R&amp;D, Software, International Publishing, Academic Events and Consulting.</span></p>
+        <div class="f-legal">
+          <span data-l="tr">Vergi Dairesi: Çanakkale — Vergi No: 7340893534</span><span data-l="en">Tax Office: Çanakkale — Tax ID: 7340893534</span><br>
+          <span data-l="tr">Sertifika No: 51372</span><span data-l="en">Certificate No: 51372</span>
+        </div>
+      </div>
+      <div class="f-col"><h4><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></h4><ul>
+        <li><a href="hizmetler.html"><span data-l="tr">Tüm Hizmetler</span><span data-l="en">All Services</span></a></li>
+        <li><a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
+        <li><a href="https://publications.holistence.com/" target="_blank" rel="noopener"><span data-l="tr">Yayıncılık</span><span data-l="en">Publishing</span></a></li>
+        <li><a href="https://journals.gen.tr/" target="_blank" rel="noopener"><span data-l="tr">Akademik Dergiler</span><span data-l="en">Academic Journals</span></a></li>
+      </ul></div>
+      <div class="f-col"><h4><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></h4><ul>
+        <li><a href="etkinlikler.html"><span data-l="tr">Bilimsel Etkinlikler</span><span data-l="en">Scientific Events</span></a></li>
+        <li><a href="kongreler.html"><span data-l="tr">Kongreler</span><span data-l="en">Congresses</span></a></li>
+        <li><a href="sergiler.html"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></a></li>
+        <li><a href="https://events.holistence.com/" target="_blank" rel="noopener"><span data-l="tr">Events Platformu</span><span data-l="en">Events Platform</span></a></li>
+      </ul></div>
+      <div class="f-col"><h4><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></h4><ul>
+        <li><a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About Us</span></a></li>
+        <li><a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a></li>
+        <li><a href="kurumsal.html"><span data-l="tr">Kurumsal Kimlik</span><span data-l="en">Corporate Identity</span></a></li>
+        <li><a href="iletisim.html"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a></li>
+      </ul></div>
+    </div>
+    <div class="f-bottom">
+      <p>© 2016–<span data-year>2026</span> <strong>Holistence Academy</strong>. <span data-l="tr">Tüm Hakları Saklıdır.</span><span data-l="en">All Rights Reserved.</span></p>
+      <p><span data-l="tr">Çanakkale Onsekiz Mart Üniversitesi Teknopark · Çanakkale / Türkiye</span><span data-l="en">Çanakkale Onsekiz Mart University Technopark · Çanakkale / Turkey</span></p>
+    </div>
   </div>
-  <div class="footer-bottom"><p>© 2025 <strong>Holistence Academy</strong>. Tüm hakları saklıdır.</p><p>📞 <strong>+90 530 638 7017</strong></p></div>
+  <div class="f-word" aria-hidden="true">Holistence</div>
 </footer>
 
-<script>
-function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');}
-function sendForm(){
-  const name=document.getElementById('name').value;
-  const email=document.getElementById('email').value;
-  const msg=document.getElementById('message').value;
-  if(!name||!email||!msg){alert('Lütfen zorunlu alanları doldurun.');return;}
-  // Show success
-  document.getElementById('successMsg').style.display='block';
-  document.querySelector('.cf-btn').style.display='none';
-  // Mailto fallback
-  const subject=encodeURIComponent('Holistence Academy - İletişim Formu');
-  const body=encodeURIComponent(`Ad Soyad: ${name}\nE-posta: ${email}\nMesaj: ${msg}`);
-  setTimeout(()=>{window.location.href=`mailto:info@holistence.com?subject=${subject}&body=${body}`;},1000);
-}
-</script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>

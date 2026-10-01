@@ -1,259 +1,237 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>document.documentElement.className+=' js';try{var l=localStorage.getItem('hl_lang');if(l==='en'||l==='tr')document.documentElement.lang=l;}catch(e){}</script>
 <title>Yazılımlar — Holistence Academy</title>
-<meta name="description" content="Holistence Academy OJS, etkinlik yönetimi ve diğer akademik yazılım çözümleri.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<style>
-:root{--dark:#060D18;--dark2:#0C1830;--navy:#0F2545;--blue:#1A3D6E;--teal:#0D7E8A;--teal-l:#12A8B8;--teal-d:#095E68;--gold:#C9A84C;--gold-l:#E8C97A;--white:#F8F6F2;--cream:#EEE8DC;--muted:#8096B2;--text:#1E3048;--border:rgba(15,37,69,0.1);}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{background:var(--white);color:var(--text);font-family:"Inter",sans-serif;overflow-x:hidden;}
-::selection{background:var(--teal);color:#fff;}::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold),var(--teal));}
-img{max-width:100%;display:block;}a{text-decoration:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:rgba(6,13,24,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.18);}
-.nav-logo{display:flex;align-items:center;gap:10px;}.nav-logo-text{line-height:1;}
-.nav-logo-main{display:block;font-family:"DM Serif Display",serif;font-size:17px;letter-spacing:0.18em;color:var(--white);text-transform:uppercase;}
-.nav-logo-sub{display:block;font-size:8px;font-weight:600;letter-spacing:0.45em;color:var(--teal-l);text-transform:uppercase;margin-top:2px;}
-.nav-links{display:flex;list-style:none;flex:1;justify-content:center;}
-.nav-links>li>a{padding:0 11px;height:72px;display:flex;align-items:center;font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(248,246,242,.55);transition:color .3s;white-space:nowrap;}
-.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--gold);}
-.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
-.lang-btn{font-size:10px;font-weight:700;letter-spacing:.15em;padding:6px 12px;border:1px solid rgba(201,168,76,.3);color:rgba(248,246,242,.45);background:transparent;cursor:pointer;transition:all .3s;font-family:"Inter",sans-serif;}
-.lang-btn.active{background:var(--gold);color:var(--dark);border-color:var(--gold);}
-.lang-btn:first-child{border-right:none;}
-.nav-cta{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:10px 18px;transition:background .3s;white-space:nowrap;}
-.nav-cta:hover{background:var(--gold-l);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--gold);}
-.mob-menu{display:none;position:fixed;inset:0;top:72px;background:rgba(6,13,24,.99);z-index:999;padding:24px;flex-direction:column;overflow-y:auto;}
-.mob-menu.open{display:flex;}
-.mob-menu a{display:block;padding:13px 0;font-size:13px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(248,246,242,.5);border-bottom:1px solid rgba(255,255,255,.05);transition:color .3s;}
-.mob-menu a:hover{color:var(--teal-l);}
-/* PAGE HERO */
-.page-hero{padding-top:72px;background:var(--dark);min-height:260px;display:flex;align-items:flex-end;position:relative;overflow:hidden;}
-.page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(13,126,138,.22) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 10% 60%,rgba(26,61,110,.28) 0%,transparent 70%);}
-.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:80px 80px;}
-.page-hero-inner{position:relative;z-index:2;padding:52px 52px;max-width:1200px;width:100%;}
-.page-breadcrumb{font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--teal-l);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.page-breadcrumb a{color:rgba(248,246,242,.4);transition:color .3s;}.page-breadcrumb a:hover{color:var(--teal-l);}
-.page-breadcrumb span{color:rgba(248,246,242,.2);}
-.page-title{font-family:"DM Serif Display",serif;font-size:clamp(32px,5vw,62px);font-weight:400;color:var(--white);line-height:1.1;}
-.page-title em{font-style:italic;color:var(--teal-l);}
-.page-subtitle{font-size:15px;font-weight:300;color:rgba(248,246,242,.5);margin-top:14px;max-width:540px;line-height:1.7;}
-/* SECTIONS */
-.sec{padding:88px 52px;}.sec.dark{background:var(--dark);}.sec.dark2{background:var(--dark2);}.sec.cream{background:var(--cream);}
-.container{max-width:1200px;margin:0 auto;}
-.sec-tag{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:var(--teal-l);margin-bottom:14px;}
-.sec-tag::before{content:'';display:block;width:24px;height:1px;background:var(--teal);}
-.sec-h{font-family:"DM Serif Display",serif;font-size:clamp(28px,4vw,44px);font-weight:400;line-height:1.15;color:var(--white);margin-bottom:52px;}
-.sec-h em{font-style:italic;color:var(--teal-l);}
-/* SOFTWARE CARDS */
-.sw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.sw-card{background:rgba(255,255,255,.04);padding:40px 32px;border-top:2px solid rgba(18,168,184,.15);transition:all .3s;cursor:default;}
-.sw-card:hover{border-top-color:var(--teal-l);background:rgba(13,126,138,.08);}
-.sw-icon{width:56px;height:56px;border:1px solid rgba(18,168,184,.3);display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px;}
-.sw-title{font-family:"DM Serif Display",serif;font-size:22px;color:var(--white);margin-bottom:10px;}
-.sw-body{font-size:13px;font-weight:300;color:rgba(248,246,242,.5);line-height:1.85;margin-bottom:18px;}
-.sw-tags{display:flex;flex-wrap:wrap;gap:6px;}
-.sw-tag{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-l);border:1px solid rgba(18,168,184,.25);padding:4px 10px;}
-/* FEATURES TABLE */
-.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:8px;}
-.feat-card{background:var(--dark2);padding:32px;border-left:3px solid transparent;transition:border-color .3s;}
-.feat-card:hover{border-left-color:var(--teal);}
-.feat-num{font-family:"Cormorant Garamond",serif;font-size:48px;font-weight:300;color:rgba(18,168,184,.15);line-height:1;margin-bottom:-10px;}
-.feat-title{font-family:"Cormorant Garamond",serif;font-size:21px;color:var(--gold-l);margin-bottom:10px;}
-.feat-body{font-size:13px;font-weight:300;color:rgba(248,246,242,.5);line-height:1.8;}
-/* CTA */
-.cta-block{text-align:center;padding:110px 40px;background:var(--dark);position:relative;overflow:hidden;}
-.cta-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,126,138,.12) 0%,transparent 70%);}
-.cta-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;}
-.cta-tag{font-size:10px;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:var(--teal-l);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:12px;}
-.cta-tag::before,.cta-tag::after{content:'';display:block;width:28px;height:1px;background:var(--teal);}
-.cta-title{font-family:"DM Serif Display",serif;font-size:clamp(26px,4vw,44px);color:var(--white);line-height:1.2;margin-bottom:14px;}
-.cta-title em{font-style:italic;color:var(--teal-l);}
-.cta-sub{font-size:15px;font-weight:300;color:rgba(248,246,242,.45);margin-bottom:40px;line-height:1.7;}
-.btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-.btn-primary{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dark);background:var(--teal);padding:16px 36px;transition:background .3s;}
-.btn-primary:hover{background:var(--teal-l);}
-.btn-outline{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-l);border:1px solid rgba(18,168,184,.4);padding:16px 36px;transition:all .3s;}
-.btn-outline:hover{border-color:var(--teal-l);background:rgba(18,168,184,.08);}
-/* FOOTER */
-footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);}
-.footer-top{padding:64px 52px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid rgba(255,255,255,.05);max-width:1200px;margin:0 auto;}
-.footer-brand-name{font-family:"DM Serif Display",serif;font-size:18px;letter-spacing:.12em;color:var(--white);text-transform:uppercase;margin-bottom:4px;}
-.footer-brand-sub{font-size:8px;font-weight:700;letter-spacing:.4em;color:var(--teal-l);text-transform:uppercase;margin-bottom:14px;}
-.footer-desc{font-size:12px;font-weight:300;color:rgba(248,246,242,.35);line-height:1.9;max-width:260px;}
-.footer-col h5{font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--teal-l);margin-bottom:18px;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-col ul li a{font-size:12px;font-weight:300;color:rgba(248,246,242,.4);transition:color .3s;}
-.footer-col ul li a:hover{color:var(--teal-l);}
-.footer-bottom{padding:22px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1200px;margin:0 auto;}
-.footer-bottom p{font-size:11px;font-weight:300;color:rgba(248,246,242,.22);}
-.footer-bottom strong{color:var(--teal-l);font-weight:400;}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
-@media(max-width:1100px){.nav-links{display:none!important;}.nav-right .nav-cta{display:none!important;}.hamburger{display:flex!important;}nav{padding:0 20px;}}
-@media(max-width:900px){.sec{padding:64px 24px;}.sw-grid,.feat-grid{grid-template-columns:1fr;}.page-hero-inner{padding:40px 24px;}.footer-top{grid-template-columns:1fr 1fr;padding:40px 24px;gap:28px;}.footer-bottom{padding:20px 24px;}}
-@media(max-width:600px){.footer-top{grid-template-columns:1fr;}}
-</style>
+<meta name="hl-title-tr" content="Yazılımlar — Holistence Academy">
+<meta name="hl-title-en" content="Software — Holistence Academy">
+<meta name="description" content="OJS, OCS, OMP, OPS kurulum ve yönetimi, kurumsal web çözümleri ve veri analiz yazılımları.">
+<meta name="theme-color" content="#04060B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yazılımlar — Holistence Academy">
+<meta property="og:description" content="OJS, OCS, OMP, OPS kurulum ve yönetimi, kurumsal web çözümleri ve veri analiz yazılımları.">
+<meta property="og:image" content="assets/img/logo-ha.png">
+<link rel="icon" type="image/png" href="assets/img/logo-ha.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-<nav id="mainNav">
-  <a href="index.html" class="nav-logo"><div class="nav-logo-text"><span class="nav-logo-main">Holistence</span><span class="nav-logo-sub">Academy</span></div></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Ana Sayfa</a></li>
-    <li><a href="hizmetler.html">Hizmetler</a></li>
-    <li><a href="yazilimlar.html" class="active">Yazılımlar</a></li>
-    <li><a href="kongreler.html">Kongreler</a></li>
-    <li><a href="sergiler.html">Sergiler</a></li>
-    <li><a href="galeri.html">Galeri</a></li>
-    <li><a href="kurumsal.html">Kurumsal</a></li>
-    <li><a href="iletisim.html">İletişim</a></li>
-  </ul>
-  <div class="nav-right">
-    <div style="display:flex;align-items:center;"><button class="lang-btn active" onclick="setLang('tr')">TR</button><button class="lang-btn" onclick="setLang('en')">EN</button></div>
-    <a href="iletisim.html" class="nav-cta">Bize Ulaşın</a>
+<!-- İkon seti -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+    <symbol id="i-journal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4 20h16L14 9V3"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l10 6H2z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  </defs>
+</svg>
+
+<a class="sr-only" href="#main">İçeriğe geç</a>
+
+<!-- ============ NAVİGASYON ============ -->
+<header class="nav" id="top">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" aria-label="Holistence Academy">
+      <img src="assets/img/logo-ha.png" alt="" width="47" height="44">
+      <span class="brand-txt">Holistence<small>ACADEMY</small></span>
+    </a>
+    <nav aria-label="Ana menü">
+      <ul class="menu">
+        <li><a href="index.html"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a></li>
+        <li><a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About</span></a></li>
+        <li><a href="hizmetler.html"><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></a></li>
+        <li><a href="yazilimlar.html" aria-current="page"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
+        <li class="has-sub">
+          <button type="button" aria-expanded="false"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span><svg class="chev"><use href="#i-chev"/></svg></button>
+          <div class="sub">
+            <a href="etkinlikler.html"><span data-l="tr">Tüm Etkinlikler</span><span data-l="en">All Events</span></a>
+            <a href="kongreler.html"><span data-l="tr">Kongreler</span><span data-l="en">Congresses</span></a>
+            <a href="sergiler.html"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></a>
+          </div>
+        </li>
+        <li><a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a></li>
+        <li><a href="kurumsal.html"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang" role="group" aria-label="Dil / Language">
+        <button type="button" data-set-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="iletisim.html" class="btn btn-primary" data-magnetic><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
+      <button class="burger" type="button" aria-label="Menü" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+    </div>
   </div>
-  <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
-</nav>
-<div class="mob-menu" id="mobMenu">
-  <a href="index.html">Ana Sayfa</a><a href="hizmetler.html">Hizmetler</a><a href="yazilimlar.html">Yazılımlar</a><a href="kongreler.html">Kongreler</a><a href="sergiler.html">Sergiler</a><a href="galeri.html">Galeri</a><a href="kurumsal.html">Kurumsal</a><a href="iletisim.html">İletişim</a>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="lang" role="group" aria-label="Dil / Language">
+    <button type="button" data-set-lang="tr" aria-pressed="true">TR</button>
+    <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+  </div>
+  <a href="index.html"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a>
+  <a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About</span></a>
+  <a href="hizmetler.html"><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></a>
+  <a href="yazilimlar.html" aria-current="page"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a>
+  <a href="etkinlikler.html"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></a>
+  <a class="child" href="kongreler.html"><span data-l="tr">↳ Kongreler</span><span data-l="en">↳ Congresses</span></a>
+  <a class="child" href="sergiler.html"><span data-l="tr">↳ Sergiler</span><span data-l="en">↳ Exhibitions</span></a>
+  <a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a>
+  <a href="kurumsal.html"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a>
+  <a href="iletisim.html"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
 </div>
 
+<main id="main">
+
 <section class="page-hero">
-  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
-  <div class="page-hero-inner">
-    <div class="page-breadcrumb"><a href="index.html">Ana Sayfa</a><span>/</span><span style="color:var(--teal-l)">Yazılımlar</span></div>
-    <h1 class="page-title">Akademik <em>Yazılım</em> Çözümleri</h1>
-    <p class="page-subtitle">Akademik kurum ve kuruluşlar için geliştirilen en gelişmiş yazılım platformlarını kurulum, yapılandırma ve yönetim hizmetleriyle sunuyoruz.</p>
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Holistence Academy</a><i></i><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></div>
+    <h1><span data-l="tr">Akademik <em>yazılım</em> çözümleri</span><span data-l="en">Academic <em>software</em> solutions</span></h1>
+    <p class="lead"><span data-l="tr">Akademik kurum ve kuruluşlar için geliştirilen en gelişmiş yazılım platformlarını kurulum, yapılandırma ve yönetim hizmetleriyle sunuyoruz.</span><span data-l="en">We deliver the most advanced software platforms built for academic institutions, together with installation, configuration and management services.</span></p>
   </div>
 </section>
 
-<!-- SOFTWARE SOLUTIONS -->
-<section class="sec dark2">
-  <div class="container">
-    <div class="sec-tag">Platformlar</div>
-    <h2 class="sec-h">Kullandığımız <em>Yazılım Platformları</em></h2>
-    <div class="sw-grid">
-      <div class="sw-card reveal d1">
-        <div class="sw-icon">📰</div>
-        <h3 class="sw-title">OJS — Open Journal Systems</h3>
-        <p class="sw-body">Dünyanın en yaygın kullanılan açık kaynaklı dergi yönetim yazılımı. PKP tarafından geliştirilen OJS ile akademik dergilerinizi profesyonel bir şekilde yönetin.</p>
-        <div class="sw-tags">
-          <span class="sw-tag">Dergi Yönetimi</span>
-          <span class="sw-tag">Açık Erişim</span>
-          <span class="sw-tag">Hakem Süreci</span>
-        </div>
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow"><span data-l="tr">Platformlar</span><span data-l="en">Platforms</span></span>
+        <h2 class="h-lg"><span data-l="tr">Kullandığımız <em>yazılım platformları</em></span><span data-l="en">The <em>software platforms</em> we use</span></h2>
       </div>
-      <div class="sw-card reveal d2">
-        <div class="sw-icon">🎪</div>
-        <h3 class="sw-title">OCS — Open Conference Systems</h3>
-        <p class="sw-body">Akademik etkinlikler için geliştirilen kapsamlı konferans yönetim platformu. Bildiri kabul, değerlendirme ve program oluşturma süreçlerini kolaylaştırır.</p>
-        <div class="sw-tags">
-          <span class="sw-tag">Konferans</span>
-          <span class="sw-tag">Bildiri Yönetimi</span>
-          <span class="sw-tag">Kayıt Sistemi</span>
-        </div>
-      </div>
-      <div class="sw-card reveal d3">
-        <div class="sw-icon">📚</div>
-        <h3 class="sw-title">OMP — Open Monograph Press</h3>
-        <p class="sw-body">Akademik kitap ve monografi yayıncılığı için tasarlanmış platform. Yayın süreçlerini dijitalleştirerek editoryal iş akışlarını optimize eder.</p>
-        <div class="sw-tags">
-          <span class="sw-tag">Kitap Yayıncılığı</span>
-          <span class="sw-tag">Monografi</span>
-          <span class="sw-tag">Açık Erişim</span>
-        </div>
-      </div>
-      <div class="sw-card reveal d1">
-        <div class="sw-icon">🗂️</div>
-        <h3 class="sw-title">OPS — Open Preprint Systems</h3>
-        <p class="sw-body">Araştırmacıların çalışmalarını hakemlik sürecinden önce paylaşabileceği modern bir ön baskı sistemi. Açık bilim ilkelerini destekler.</p>
-        <div class="sw-tags">
-          <span class="sw-tag">Ön Baskı</span>
-          <span class="sw-tag">Açık Bilim</span>
-        </div>
-      </div>
-      <div class="sw-card reveal d2">
-        <div class="sw-icon">🌐</div>
-        <h3 class="sw-title">Kurumsal Web Çözümleri</h3>
-        <p class="sw-body">Akademik kurumlar için özelleştirilmiş web sitesi tasarım ve geliştirme hizmetleri. Modern, duyarlı ve erişilebilir arayüzler ile kurumsal kimliğinizi dijitale taşıyın.</p>
-        <div class="sw-tags">
-          <span class="sw-tag">Web Tasarım</span>
-          <span class="sw-tag">Responsive</span>
-          <span class="sw-tag">CMS</span>
-        </div>
-      </div>
-      <div class="sw-card reveal d3">
-        <div class="sw-icon">📊</div>
-        <h3 class="sw-title">Veri Analiz Yazılımları</h3>
-        <p class="sw-body">SPSS, R ve Python tabanlı istatistiksel analiz araçlarıyla araştırma verilerinizi profesyonel şekilde işleyin. Akademik standartlara uygun raporlama.</p>
-        <div class="sw-tags">
-          <span class="sw-tag">SPSS</span>
-          <span class="sw-tag">İstatistik</span>
-          <span class="sw-tag">Raporlama</span>
-        </div>
-      </div>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <span class="card-num">OJS</span><span class="card-ic"><svg><use href="#i-journal"/></svg></span>
+        <h3>OJS — Open Journal Systems</h3>
+        <p><span data-l="tr">Dünyanın en yaygın kullanılan açık kaynaklı dergi yönetim yazılımı. PKP tarafından geliştirilen OJS ile akademik dergilerinizi profesyonel bir şekilde yönetin.</span><span data-l="en">The world's most widely used open-source journal management software. Manage your academic journals professionally with OJS, developed by PKP.</span></p>
+        <div class="tags"><span><span data-l="tr">Dergi Yönetimi</span><span data-l="en">Journal Management</span></span><span><span data-l="tr">Açık Erişim</span><span data-l="en">Open Access</span></span><span><span data-l="tr">Hakem Süreci</span><span data-l="en">Peer Review</span></span></div>
+      </article>
+      <article class="card reveal d1">
+        <span class="card-num">OCS</span><span class="card-ic"><svg><use href="#i-cap"/></svg></span>
+        <h3>OCS — Open Conference Systems</h3>
+        <p><span data-l="tr">Akademik etkinlikler için geliştirilen kapsamlı konferans yönetim platformu. Bildiri kabul, değerlendirme ve program oluşturma süreçlerini kolaylaştırır.</span><span data-l="en">A comprehensive conference management platform for academic events. It streamlines paper submission, review and programme building.</span></p>
+        <div class="tags"><span><span data-l="tr">Konferans</span><span data-l="en">Conference</span></span><span><span data-l="tr">Bildiri Yönetimi</span><span data-l="en">Paper Management</span></span><span><span data-l="tr">Kayıt Sistemi</span><span data-l="en">Registration</span></span></div>
+      </article>
+      <article class="card reveal d2">
+        <span class="card-num">OMP</span><span class="card-ic"><svg><use href="#i-book"/></svg></span>
+        <h3>OMP — Open Monograph Press</h3>
+        <p><span data-l="tr">Akademik kitap ve monografi yayıncılığı için tasarlanmış platform. Yayın süreçlerini dijitalleştirerek editoryal iş akışlarını optimize eder.</span><span data-l="en">A platform designed for academic book and monograph publishing. It digitises publishing processes and optimises editorial workflows.</span></p>
+        <div class="tags"><span><span data-l="tr">Kitap Yayıncılığı</span><span data-l="en">Book Publishing</span></span><span><span data-l="tr">Monografi</span><span data-l="en">Monograph</span></span><span><span data-l="tr">Açık Erişim</span><span data-l="en">Open Access</span></span></div>
+      </article>
+      <article class="card reveal">
+        <span class="card-num">OPS</span><span class="card-ic"><svg><use href="#i-layers"/></svg></span>
+        <h3>OPS — Open Preprint Systems</h3>
+        <p><span data-l="tr">Araştırmacıların çalışmalarını hakemlik sürecinden önce paylaşabileceği modern bir ön baskı sistemi. Açık bilim ilkelerini destekler.</span><span data-l="en">A modern preprint system where researchers can share their work before peer review. It supports open science principles.</span></p>
+        <div class="tags"><span><span data-l="tr">Ön Baskı</span><span data-l="en">Preprint</span></span><span><span data-l="tr">Açık Bilim</span><span data-l="en">Open Science</span></span></div>
+      </article>
+      <article class="card reveal d1">
+        <span class="card-num">WEB</span><span class="card-ic"><svg><use href="#i-globe"/></svg></span>
+        <h3><span data-l="tr">Kurumsal Web Çözümleri</span><span data-l="en">Corporate Web Solutions</span></h3>
+        <p><span data-l="tr">Akademik kurumlar için özelleştirilmiş web sitesi tasarım ve geliştirme hizmetleri. Modern, duyarlı ve erişilebilir arayüzler ile kurumsal kimliğinizi dijitale taşıyın.</span><span data-l="en">Custom website design and development for academic institutions. Bring your corporate identity online with modern, responsive and accessible interfaces.</span></p>
+        <div class="tags"><span><span data-l="tr">Web Tasarım</span><span data-l="en">Web Design</span></span><span>Responsive</span><span>CMS</span></div>
+      </article>
+      <article class="card reveal d2">
+        <span class="card-num">DATA</span><span class="card-ic"><svg><use href="#i-chart"/></svg></span>
+        <h3><span data-l="tr">Veri Analiz Yazılımları</span><span data-l="en">Data Analysis Software</span></h3>
+        <p><span data-l="tr">SPSS, R ve Python tabanlı istatistiksel analiz araçlarıyla araştırma verilerinizi profesyonel şekilde işleyin. Akademik standartlara uygun raporlama.</span><span data-l="en">Process your research data professionally with SPSS, R and Python-based statistical tools. Reporting that meets academic standards.</span></p>
+        <div class="tags"><span>SPSS</span><span><span data-l="tr">İstatistik</span><span data-l="en">Statistics</span></span><span><span data-l="tr">Raporlama</span><span data-l="en">Reporting</span></span></div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- OJS FEATURES -->
-<section class="sec dark">
-  <div class="container">
-    <div class="sec-tag">OJS Özellikleri</div>
-    <h2 class="sec-h">OJS ile Neler <em>Yapabilirsiniz?</em></h2>
-    <div class="feat-grid">
-      <div class="feat-card reveal">
-        <div class="feat-num">01</div>
-        <h3 class="feat-title">Tam Editöryal İş Akışı</h3>
-        <p class="feat-body">Makale gönderi kabulünden yayına kadar tüm editöryal süreçleri tek platform üzerinden yönetin. Çift kör hakemlik sistemi tam entegre.</p>
+<section class="section paper">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow"><span data-l="tr">OJS Özellikleri</span><span data-l="en">OJS Features</span></span>
+        <h2 class="h-lg"><span data-l="tr">OJS ile neler <em>yapabilirsiniz?</em></span><span data-l="en">What can you <em>do with OJS?</em></span></h2>
       </div>
-      <div class="feat-card reveal">
-        <div class="feat-num">02</div>
-        <h3 class="feat-title">Çok Dilli Destek</h3>
-        <p class="feat-body">Türkçe dahil 30'dan fazla dil desteğiyle uluslararası dergiler oluşturun. Arayüz ve içerik çok dilli olarak yönetilebilir.</p>
-      </div>
-      <div class="feat-card reveal">
-        <div class="feat-num">03</div>
-        <h3 class="feat-title">İndeks Uyumluluğu</h3>
-        <p class="feat-body">Google Scholar, DOAJ, Crossref ve diğer uluslararası indeksler için gerekli meta veri standartlarını otomatik olarak karşılar.</p>
-      </div>
-      <div class="feat-card reveal">
-        <div class="feat-num">04</div>
-        <h3 class="feat-title">DOI Entegrasyonu</h3>
-        <p class="feat-body">Crossref ile doğrudan entegrasyon sayesinde makalelere otomatik DOI atayın ve uluslararası atıf sistemlerine dahil olun.</p>
-      </div>
+    </div>
+    <div class="feat">
+      <div class="reveal"><b>01</b><h3><span data-l="tr">Tam Editöryal İş Akışı</span><span data-l="en">Full Editorial Workflow</span></h3><p><span data-l="tr">Makale gönderi kabulünden yayına kadar tüm editöryal süreçleri tek platform üzerinden yönetin. Çift kör hakemlik sistemi tam entegre.</span><span data-l="en">Manage every editorial step — from submission to publication — on a single platform. Double-blind peer review is fully integrated.</span></p></div>
+      <div class="reveal d1"><b>02</b><h3><span data-l="tr">Çok Dilli Destek</span><span data-l="en">Multilingual Support</span></h3><p><span data-l="tr">Türkçe dahil 30'dan fazla dil desteğiyle uluslararası dergiler oluşturun. Arayüz ve içerik çok dilli olarak yönetilebilir.</span><span data-l="en">Build international journals with support for more than 30 languages, including Turkish. Interface and content can be managed in multiple languages.</span></p></div>
+      <div class="reveal d2"><b>03</b><h3><span data-l="tr">İndeks Uyumluluğu</span><span data-l="en">Index Compatibility</span></h3><p><span data-l="tr">Google Scholar, DOAJ, Crossref ve diğer uluslararası indeksler için gerekli meta veri standartlarını otomatik olarak karşılar.</span><span data-l="en">Automatically meets the metadata standards required by Google Scholar, DOAJ, Crossref and other international indexes.</span></p></div>
+      <div class="reveal d3"><b>04</b><h3><span data-l="tr">DOI Entegrasyonu</span><span data-l="en">DOI Integration</span></h3><p><span data-l="tr">Crossref ile doğrudan entegrasyon sayesinde makalelere otomatik DOI atayın ve uluslararası atıf sistemlerine dahil olun.</span><span data-l="en">Assign DOIs to articles automatically through direct Crossref integration and join international citation systems.</span></p></div>
     </div>
   </div>
 </section>
 
-<section class="cta-block">
-  <div class="cta-inner">
-    <div class="cta-tag">Başlayalım</div>
-    <h2 class="cta-title">Kurumunuz için doğru <em>yazılım çözümünü</em> birlikte seçelim.</h2>
-    <p class="cta-sub">Akademik yazılım ihtiyaçlarınız için ücretsiz danışmanlık hizmetimizden yararlanın.</p>
-    <div class="btn-row"><a href="iletisim.html" class="btn-primary">Ücretsiz Danışmanlık</a><a href="hizmetler.html" class="btn-outline">Tüm Hizmetler</a></div>
+<section class="section">
+  <div class="wrap">
+    <div class="cta reveal">
+      <span class="eyebrow"><span data-l="tr">Başlayalım</span><span data-l="en">Let's Start</span></span>
+      <h2 class="h-lg"><span data-l="tr">Kurumunuz için doğru <em>yazılım çözümünü</em> birlikte seçelim.</span><span data-l="en">Let's choose the right <em>software solution</em> for your institution together.</span></h2>
+      <p class="lead"><span data-l="tr">Akademik yazılım ihtiyaçlarınız için ücretsiz danışmanlık hizmetimizden yararlanın.</span><span data-l="en">Benefit from our free consultation for your academic software needs.</span></p>
+      <div class="row">
+        <a href="iletisim.html" class="btn btn-primary" data-magnetic><span data-l="tr">Ücretsiz Danışmanlık</span><span data-l="en">Free Consultation</span><svg><use href="#i-arrow"/></svg></a>
+        <a href="hizmetler.html" class="btn btn-ghost"><span data-l="tr">Tüm Hizmetler</span><span data-l="en">All Services</span></a>
+      </div>
+    </div>
   </div>
 </section>
+</main>
 
-<footer>
-  <div class="footer-top">
-    <div><div class="footer-brand-name">Holistence</div><div class="footer-brand-sub">Academy</div><p class="footer-desc">Akademik dünyada kaliteli yayıncılık, etkinlik organizasyonu ve danışmanlık hizmetleri sunan güvenilir partneriniz.</p></div>
-    <div class="footer-col"><h5>Hizmetler</h5><ul><li><a href="hizmetler.html">Dergi Yönetimi</a></li><li><a href="hizmetler.html">Etkinlik Org.</a></li><li><a href="hizmetler.html">Anket Hizmetleri</a></li><li><a href="hizmetler.html">Danışmanlık</a></li></ul></div>
-    <div class="footer-col"><h5>Kurumsal</h5><ul><li><a href="kurumsal.html">Hakkımızda</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="iletisim.html">İletişim</a></li></ul></div>
-    <div class="footer-col"><h5>Etkinlikler</h5><ul><li><a href="kongreler.html">Kongreler</a></li><li><a href="sergiler.html">Sergiler</a></li><li><a href="yazilimlar.html">Yazılımlar</a></li></ul></div>
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <img src="assets/img/logo-ha.png" alt="Holistence Academy" width="64" height="60" loading="lazy">
+        <p><span data-l="tr">2016 yılından bu yana Ar-Ge, Yazılım, Uluslararası Yayıncılık, Akademik Etkinlik ve Danışmanlık alanlarında bütünsel hizmetler.</span><span data-l="en">Since 2016, providing holistic services in R&amp;D, Software, International Publishing, Academic Events and Consulting.</span></p>
+        <div class="f-legal">
+          <span data-l="tr">Vergi Dairesi: Çanakkale — Vergi No: 7340893534</span><span data-l="en">Tax Office: Çanakkale — Tax ID: 7340893534</span><br>
+          <span data-l="tr">Sertifika No: 51372</span><span data-l="en">Certificate No: 51372</span>
+        </div>
+      </div>
+      <div class="f-col"><h4><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></h4><ul>
+        <li><a href="hizmetler.html"><span data-l="tr">Tüm Hizmetler</span><span data-l="en">All Services</span></a></li>
+        <li><a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
+        <li><a href="https://publications.holistence.com/" target="_blank" rel="noopener"><span data-l="tr">Yayıncılık</span><span data-l="en">Publishing</span></a></li>
+        <li><a href="https://journals.gen.tr/" target="_blank" rel="noopener"><span data-l="tr">Akademik Dergiler</span><span data-l="en">Academic Journals</span></a></li>
+      </ul></div>
+      <div class="f-col"><h4><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></h4><ul>
+        <li><a href="etkinlikler.html"><span data-l="tr">Bilimsel Etkinlikler</span><span data-l="en">Scientific Events</span></a></li>
+        <li><a href="kongreler.html"><span data-l="tr">Kongreler</span><span data-l="en">Congresses</span></a></li>
+        <li><a href="sergiler.html"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></a></li>
+        <li><a href="https://events.holistence.com/" target="_blank" rel="noopener"><span data-l="tr">Events Platformu</span><span data-l="en">Events Platform</span></a></li>
+      </ul></div>
+      <div class="f-col"><h4><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></h4><ul>
+        <li><a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About Us</span></a></li>
+        <li><a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a></li>
+        <li><a href="kurumsal.html"><span data-l="tr">Kurumsal Kimlik</span><span data-l="en">Corporate Identity</span></a></li>
+        <li><a href="iletisim.html"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a></li>
+      </ul></div>
+    </div>
+    <div class="f-bottom">
+      <p>© 2016–<span data-year>2026</span> <strong>Holistence Academy</strong>. <span data-l="tr">Tüm Hakları Saklıdır.</span><span data-l="en">All Rights Reserved.</span></p>
+      <p><span data-l="tr">Çanakkale Onsekiz Mart Üniversitesi Teknopark · Çanakkale / Türkiye</span><span data-l="en">Çanakkale Onsekiz Mart University Technopark · Çanakkale / Turkey</span></p>
+    </div>
   </div>
-  <div class="footer-bottom"><p>© 2025 <strong>Holistence Academy</strong>. Tüm hakları saklıdır.</p><p>Tasarım: <strong>Holistence Academy</strong></p></div>
+  <div class="f-word" aria-hidden="true">Holistence</div>
 </footer>
-<script>
-function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');}
-function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));event.target.classList.add('active');}
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>20);});
-</script>
+
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>

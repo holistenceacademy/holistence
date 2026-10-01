@@ -1,216 +1,212 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>document.documentElement.className+=' js';try{var l=localStorage.getItem('hl_lang');if(l==='en'||l==='tr')document.documentElement.lang=l;}catch(e){}</script>
 <title>Sergiler — Holistence Academy</title>
-<meta name="description" content="Holistence Academy tarafından düzenlenen akademik ve sanat sergileri.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<style>
-:root{--dark:#060D18;--dark2:#0C1830;--navy:#0F2545;--teal:#0D7E8A;--teal-l:#12A8B8;--teal-d:#095E68;--gold:#C9A84C;--gold-l:#E8C97A;--white:#F8F6F2;--cream:#EEE8DC;--muted:#8096B2;--text:#1E3048;--border:rgba(15,37,69,0.1);}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{background:var(--white);color:var(--text);font-family:"Inter",sans-serif;overflow-x:hidden;}
-::selection{background:var(--teal);color:#fff;}::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold),var(--teal));}
-img{max-width:100%;display:block;}a{text-decoration:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:rgba(6,13,24,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.18);}
-.nav-logo{display:flex;align-items:center;}.nav-logo-text{line-height:1;}
-.nav-logo-main{display:block;font-family:"DM Serif Display",serif;font-size:17px;letter-spacing:0.18em;color:var(--white);text-transform:uppercase;}
-.nav-logo-sub{display:block;font-size:8px;font-weight:600;letter-spacing:0.45em;color:var(--teal-l);text-transform:uppercase;margin-top:2px;}
-.nav-links{display:flex;list-style:none;flex:1;justify-content:center;}
-.nav-links>li>a{padding:0 11px;height:72px;display:flex;align-items:center;font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(248,246,242,.55);transition:color .3s;white-space:nowrap;}
-.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--gold);}
-.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
-.lang-btn{font-size:10px;font-weight:700;letter-spacing:.15em;padding:6px 12px;border:1px solid rgba(201,168,76,.3);color:rgba(248,246,242,.45);background:transparent;cursor:pointer;transition:all .3s;font-family:"Inter",sans-serif;}
-.lang-btn.active{background:var(--gold);color:var(--dark);border-color:var(--gold);}.lang-btn:first-child{border-right:none;}
-.nav-cta{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:10px 18px;transition:background .3s;white-space:nowrap;}
-.nav-cta:hover{background:var(--gold-l);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--gold);}
-.mob-menu{display:none;position:fixed;inset:0;top:72px;background:rgba(6,13,24,.99);z-index:999;padding:24px;flex-direction:column;overflow-y:auto;}
-.mob-menu.open{display:flex;}
-.mob-menu a{display:block;padding:13px 0;font-size:13px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(248,246,242,.5);border-bottom:1px solid rgba(255,255,255,.05);transition:color .3s;}
-.mob-menu a:hover{color:var(--teal-l);}
-.page-hero{padding-top:72px;background:var(--dark);min-height:280px;display:flex;align-items:flex-end;position:relative;overflow:hidden;}
-.page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(201,168,76,.15) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 10% 60%,rgba(13,126,138,.2) 0%,transparent 70%);}
-.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:80px 80px;}
-.page-hero-inner{position:relative;z-index:2;padding:52px;max-width:1200px;width:100%;}
-.page-breadcrumb{font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-l);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.page-breadcrumb a{color:rgba(248,246,242,.4);}.page-breadcrumb span{color:rgba(248,246,242,.2);}
-.page-title{font-family:"DM Serif Display",serif;font-size:clamp(32px,5vw,62px);font-weight:400;color:var(--white);line-height:1.1;}
-.page-title em{font-style:italic;color:var(--gold-l);}
-.page-subtitle{font-size:15px;font-weight:300;color:rgba(248,246,242,.5);margin-top:14px;max-width:540px;line-height:1.7;}
-.sec{padding:88px 52px;}.sec.dark{background:var(--dark);}.sec.dark2{background:var(--dark2);}.sec.cream{background:var(--cream);}
-.container{max-width:1200px;margin:0 auto;}
-.sec-tag{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
-.sec-tag::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
-.sec-h{font-family:"DM Serif Display",serif;font-size:clamp(28px,4vw,44px);font-weight:400;line-height:1.15;margin-bottom:52px;}
-.dark .sec-h,.dark2 .sec-h{color:var(--white);}
-.light-sec .sec-h{color:var(--navy);}
-.sec-h em{font-style:italic;color:var(--gold-l);}
-.light-sec .sec-h em{color:var(--teal);}
-/* EXHIBITION GRID */
-.exhibit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;}
-.exhibit-card{position:relative;overflow:hidden;cursor:pointer;}
-.exhibit-card.tall{grid-row:span 2;}
-.exhibit-visual{width:100%;height:320px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .6s;}
-.exhibit-card.tall .exhibit-visual{height:100%;}
-.exhibit-card:hover .exhibit-visual{transform:scale(1.04);}
-.exhibit-visual.ev1{background:linear-gradient(135deg,#0C1830,#095E68,#C9A84C);}
-.exhibit-visual.ev2{background:linear-gradient(135deg,#0F2545,#12A8B8);}
-.exhibit-visual.ev3{background:linear-gradient(135deg,#060D18,#0D7E8A,#E8C97A);}
-.exhibit-visual.ev4{background:linear-gradient(135deg,#1A3D6E,#0D7E8A);}
-.exhibit-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,13,24,.9) 0%,rgba(6,13,24,.2) 50%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;}
-.exhibit-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:4px 10px;margin-bottom:10px;align-self:flex-start;}
-.exhibit-title{font-family:"DM Serif Display",serif;font-size:22px;color:var(--white);margin-bottom:6px;line-height:1.2;}
-.exhibit-meta{font-size:11px;font-weight:300;color:rgba(248,246,242,.6);}
-.exhibit-art{font-family:"Cormorant Garamond",serif;font-size:clamp(80px,15vw,160px);font-weight:300;color:rgba(255,255,255,.06);line-height:1;position:absolute;right:-10px;bottom:-20px;pointer-events:none;}
-/* INFO BLOCKS */
-.exhibit-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.ei-card{background:rgba(255,255,255,.04);padding:36px 28px;border-bottom:2px solid rgba(201,168,76,.2);transition:border-color .3s;}
-.ei-card:hover{border-bottom-color:var(--gold);}
-.ei-icon{font-size:28px;margin-bottom:16px;}
-.ei-title{font-family:"Cormorant Garamond",serif;font-size:21px;color:var(--gold-l);margin-bottom:10px;}
-.ei-body{font-size:13px;font-weight:300;color:rgba(248,246,242,.5);line-height:1.85;}
-/* CTA */
-.cta-block{text-align:center;padding:110px 40px;background:var(--dark2);position:relative;overflow:hidden;}
-.cta-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.08) 0%,transparent 70%);}
-.cta-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;}
-.cta-tag{font-size:10px;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:var(--gold-l);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:12px;}
-.cta-tag::before,.cta-tag::after{content:'';display:block;width:28px;height:1px;background:var(--gold);}
-.cta-title{font-family:"DM Serif Display",serif;font-size:clamp(26px,4vw,44px);color:var(--white);line-height:1.2;margin-bottom:14px;}
-.cta-title em{font-style:italic;color:var(--gold-l);}
-.cta-sub{font-size:15px;font-weight:300;color:rgba(248,246,242,.45);margin-bottom:40px;line-height:1.7;}
-.btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-.btn-primary{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:16px 36px;transition:background .3s;}
-.btn-primary:hover{background:var(--gold-l);}
-.btn-outline{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-l);border:1px solid rgba(201,168,76,.4);padding:16px 36px;transition:all .3s;}
-.btn-outline:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
-footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);}
-.footer-top{padding:64px 52px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid rgba(255,255,255,.05);max-width:1200px;margin:0 auto;}
-.footer-brand-name{font-family:"DM Serif Display",serif;font-size:18px;letter-spacing:.12em;color:var(--white);text-transform:uppercase;margin-bottom:4px;}
-.footer-brand-sub{font-size:8px;font-weight:700;letter-spacing:.4em;color:var(--teal-l);text-transform:uppercase;margin-bottom:14px;}
-.footer-desc{font-size:12px;font-weight:300;color:rgba(248,246,242,.35);line-height:1.9;max-width:260px;}
-.footer-col h5{font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--teal-l);margin-bottom:18px;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-col ul li a{font-size:12px;font-weight:300;color:rgba(248,246,242,.4);transition:color .3s;}
-.footer-col ul li a:hover{color:var(--teal-l);}
-.footer-bottom{padding:22px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1200px;margin:0 auto;}
-.footer-bottom p{font-size:11px;font-weight:300;color:rgba(248,246,242,.22);}
-.footer-bottom strong{color:var(--teal-l);font-weight:400;}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
-@media(max-width:1100px){.nav-links{display:none!important;}.nav-right .nav-cta{display:none!important;}.hamburger{display:flex!important;}nav{padding:0 20px;}}
-@media(max-width:900px){.sec{padding:64px 24px;}.exhibit-grid,.exhibit-info-grid{grid-template-columns:1fr;}.exhibit-card.tall{grid-row:span 1;}.page-hero-inner{padding:40px 24px;}.footer-top{grid-template-columns:1fr 1fr;padding:40px 24px;gap:28px;}.footer-bottom{padding:20px 24px;}}
-@media(max-width:600px){.footer-top{grid-template-columns:1fr;}}
-</style>
+<meta name="hl-title-tr" content="Sergiler — Holistence Academy">
+<meta name="hl-title-en" content="Exhibitions — Holistence Academy">
+<meta name="description" content="Akademik ve sanatsal sergiler; araştırmacılar, sanatçılar ve izleyiciyi buluşturuyor.">
+<meta name="theme-color" content="#04060B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sergiler — Holistence Academy">
+<meta property="og:description" content="Akademik ve sanatsal sergiler; araştırmacılar, sanatçılar ve izleyiciyi buluşturuyor.">
+<meta property="og:image" content="assets/img/logo-ha.png">
+<link rel="icon" type="image/png" href="assets/img/logo-ha.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-<nav id="mainNav">
-  <a href="index.html" class="nav-logo"><div class="nav-logo-text"><span class="nav-logo-main">Holistence</span><span class="nav-logo-sub">Academy</span></div></a>
-  <ul class="nav-links"><li><a href="index.html">Ana Sayfa</a></li><li><a href="hizmetler.html">Hizmetler</a></li><li><a href="yazilimlar.html">Yazılımlar</a></li><li><a href="kongreler.html">Kongreler</a></li><li><a href="sergiler.html" class="active">Sergiler</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="kurumsal.html">Kurumsal</a></li><li><a href="iletisim.html">İletişim</a></li></ul>
-  <div class="nav-right"><div style="display:flex;align-items:center;"><button class="lang-btn active">TR</button><button class="lang-btn">EN</button></div><a href="iletisim.html" class="nav-cta">Bize Ulaşın</a></div>
-  <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
-</nav>
-<div class="mob-menu" id="mobMenu"><a href="index.html">Ana Sayfa</a><a href="hizmetler.html">Hizmetler</a><a href="yazilimlar.html">Yazılımlar</a><a href="kongreler.html">Kongreler</a><a href="sergiler.html">Sergiler</a><a href="galeri.html">Galeri</a><a href="kurumsal.html">Kurumsal</a><a href="iletisim.html">İletişim</a></div>
+<!-- İkon seti -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+    <symbol id="i-journal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4 20h16L14 9V3"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l10 6H2z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  </defs>
+</svg>
+
+<a class="sr-only" href="#main">İçeriğe geç</a>
+
+<!-- ============ NAVİGASYON ============ -->
+<header class="nav" id="top">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" aria-label="Holistence Academy">
+      <img src="assets/img/logo-ha.png" alt="" width="47" height="44">
+      <span class="brand-txt">Holistence<small>ACADEMY</small></span>
+    </a>
+    <nav aria-label="Ana menü">
+      <ul class="menu">
+        <li><a href="index.html"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a></li>
+        <li><a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About</span></a></li>
+        <li><a href="hizmetler.html"><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></a></li>
+        <li><a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
+        <li class="has-sub is-active">
+          <button type="button" aria-expanded="false"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span><svg class="chev"><use href="#i-chev"/></svg></button>
+          <div class="sub">
+            <a href="etkinlikler.html"><span data-l="tr">Tüm Etkinlikler</span><span data-l="en">All Events</span></a>
+            <a href="kongreler.html"><span data-l="tr">Kongreler</span><span data-l="en">Congresses</span></a>
+            <a href="sergiler.html" aria-current="page"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></a>
+          </div>
+        </li>
+        <li><a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a></li>
+        <li><a href="kurumsal.html"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang" role="group" aria-label="Dil / Language">
+        <button type="button" data-set-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="iletisim.html" class="btn btn-primary" data-magnetic><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
+      <button class="burger" type="button" aria-label="Menü" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="lang" role="group" aria-label="Dil / Language">
+    <button type="button" data-set-lang="tr" aria-pressed="true">TR</button>
+    <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+  </div>
+  <a href="index.html"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a>
+  <a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About</span></a>
+  <a href="hizmetler.html"><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></a>
+  <a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a>
+  <a href="etkinlikler.html"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></a>
+  <a class="child" href="kongreler.html"><span data-l="tr">↳ Kongreler</span><span data-l="en">↳ Congresses</span></a>
+  <a class="child" href="sergiler.html"><span data-l="tr">↳ Sergiler</span><span data-l="en">↳ Exhibitions</span></a>
+  <a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a>
+  <a href="kurumsal.html"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a>
+  <a href="iletisim.html"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
+</div>
+
+<main id="main">
 
 <section class="page-hero">
-  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
-  <div class="page-hero-inner">
-    <div class="page-breadcrumb"><a href="index.html">Ana Sayfa</a><span>/</span><span style="color:var(--gold-l)">Sergiler</span></div>
-    <h1 class="page-title">Akademik & Sanat <em>Sergileri</em></h1>
-    <p class="page-subtitle">Holistence Academy bünyesinde gerçekleştirilen akademik ve sanatsal sergiler; araştırmacılar, sanatçılar ve izleyiciyi buluşturuyor.</p>
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Holistence Academy</a><i></i><a href="etkinlikler.html"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></a><i></i><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></div>
+    <h1><span data-l="tr">Akademik &amp; sanat <em>sergileri</em></span><span data-l="en">Academic &amp; art <em>exhibitions</em></span></h1>
+    <p class="lead"><span data-l="tr">Holistence Academy bünyesinde gerçekleştirilen akademik ve sanatsal sergiler; araştırmacılar, sanatçılar ve izleyiciyi buluşturuyor.</span><span data-l="en">The academic and artistic exhibitions held by Holistence Academy bring researchers, artists and audiences together.</span></p>
   </div>
 </section>
 
-<!-- EXHIBITIONS GRID -->
-<section class="sec dark">
-  <div class="container">
-    <div class="sec-tag">Sergiler</div>
-    <h2 class="sec-h" style="color:var(--white);">Gerçekleştirilen <em>Sergilerimiz</em></h2>
-    <div class="exhibit-grid">
-      <div class="exhibit-card tall reveal">
-        <div class="exhibit-visual ev1" style="height:660px;">
-          <span class="exhibit-art">🎨</span>
-          <div class="exhibit-overlay">
-            <span class="exhibit-badge">Tamamlandı</span>
-            <h3 class="exhibit-title">Bilim ve Sanatın Buluşması — 2024 Multidisipliner Sergi</h3>
-            <div class="exhibit-meta">📅 Ekim 2024 &nbsp;|&nbsp; 📍 Çanakkale Kültür Merkezi</div>
-          </div>
-        </div>
-      </div>
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
       <div>
-        <div class="exhibit-card reveal d1" style="margin-bottom:3px;">
-          <div class="exhibit-visual ev2">
-            <span class="exhibit-art">🔬</span>
-            <div class="exhibit-overlay">
-              <span class="exhibit-badge">Tamamlandı</span>
-              <h3 class="exhibit-title">Araştırma Posterleri Sergisi — HOLİSTENCE 2024</h3>
-              <div class="exhibit-meta">📅 Ekim 2024 &nbsp;|&nbsp; 👁️ 800+ Ziyaretçi</div>
-            </div>
-          </div>
-        </div>
-        <div class="exhibit-card reveal d2">
-          <div class="exhibit-visual ev3">
-            <span class="exhibit-art">📖</span>
-            <div class="exhibit-overlay">
-              <span class="exhibit-badge">Tamamlandı</span>
-              <h3 class="exhibit-title">Akademik Yayın Fuarı — 2023</h3>
-              <div class="exhibit-meta">📅 Kasım 2023 &nbsp;|&nbsp; 🌐 Online & Yüz yüze</div>
-            </div>
-          </div>
-        </div>
+        <span class="eyebrow"><span data-l="tr">Neden sergi?</span><span data-l="en">Why exhibitions?</span></span>
+        <h2 class="h-lg"><span data-l="tr">Sergilerimizin <em>değeri</em></span><span data-l="en">The <em>value</em> of our exhibitions</span></h2>
       </div>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <span class="card-num">01</span><span class="card-ic"><svg><use href="#i-users"/></svg></span>
+        <h3><span data-l="tr">Disiplinlerarası Buluşma</span><span data-l="en">Interdisciplinary Encounter</span></h3>
+        <p><span data-l="tr">Farklı alanlardan araştırmacı ve sanatçıları bir araya getirerek yeni işbirliklerinin doğmasına zemin hazırlar.</span><span data-l="en">Brings researchers and artists from different fields together, laying the ground for new collaborations.</span></p>
+      </article>
+      <article class="card reveal d1">
+        <span class="card-num">02</span><span class="card-ic"><svg><use href="#i-bulb"/></svg></span>
+        <h3><span data-l="tr">Araştırmaların Görünürlüğü</span><span data-l="en">Visibility of Research</span></h3>
+        <p><span data-l="tr">Akademik çalışmaların akademi dışı geniş kitlelere ulaşmasını sağlar ve araştırmaların toplumsal etkisini artırır.</span><span data-l="en">Helps academic work reach wide audiences beyond academia and increases the social impact of research.</span></p>
+      </article>
+      <article class="card reveal d2">
+        <span class="card-num">03</span><span class="card-ic"><svg><use href="#i-globe"/></svg></span>
+        <h3><span data-l="tr">Uluslararası Ağ</span><span data-l="en">International Network</span></h3>
+        <p><span data-l="tr">Sergiler aracılığıyla uluslararası akademisyenler ve kurumlarla bağlantı kurulur; global akademik ağ genişler.</span><span data-l="en">Exhibitions connect us with international academics and institutions, expanding the global academic network.</span></p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- WHY EXHIBITION -->
-<section class="sec dark2">
-  <div class="container">
-    <div class="sec-tag">Neden Sergi?</div>
-    <h2 class="sec-h" style="color:var(--white);">Sergilerimizin <em>Değeri</em></h2>
-    <div class="exhibit-info-grid">
-      <div class="ei-card reveal d1">
-        <div class="ei-icon">🤝</div>
-        <h3 class="ei-title">Disiplinlerarası Buluşma</h3>
-        <p class="ei-body">Farklı alanlardan araştırmacı ve sanatçıları bir araya getirerek yeni işbirliklerinin doğmasına zemin hazırlar.</p>
-      </div>
-      <div class="ei-card reveal d2">
-        <div class="ei-icon">💡</div>
-        <h3 class="ei-title">Araştırmaların Görünürlüğü</h3>
-        <p class="ei-body">Akademik çalışmaların akademi dışı geniş kitlelere ulaşmasını sağlar ve araştırmaların toplumsal etkisini artırır.</p>
-      </div>
-      <div class="ei-card reveal d3">
-        <div class="ei-icon">🌍</div>
-        <h3 class="ei-title">Uluslararası Ağ</h3>
-        <p class="ei-body">Sergiler aracılığıyla uluslararası akademisyenler ve kurumlarla bağlantı kurulur; global akademik ağ genişler.</p>
-      </div>
+<section class="section paper">
+  <div class="wrap split2">
+    <div class="reveal">
+      <span class="eyebrow"><span data-l="tr">Sergi kurgusu</span><span data-l="en">Exhibition setup</span></span>
+      <h2 class="h-lg" style="margin:16px 0 18px"><span data-l="tr">Fiziksel ve <em>dijital</em> sergiler</span><span data-l="en">Physical and <em>digital</em> exhibitions</span></h2>
+      <p class="lead"><span data-l="tr">Mekânsal kurgu, tanıtım akışı ve içerik yönetimi ile sergilerinizi uçtan uca planlıyoruz.</span><span data-l="en">We plan your exhibitions end to end with spatial setup, promotional flow and content management.</span></p>
+    </div>
+    <div class="reveal d2" style="text-align:right">
+      <a href="galeri.html" class="btn btn-dark"><span data-l="tr">Galeriyi Gör</span><span data-l="en">View Gallery</span><svg><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
 
-<section class="cta-block">
-  <div class="cta-inner">
-    <div class="cta-tag">Katılın</div>
-    <h2 class="cta-title">Serginizi <em>birlikte</em> hayata geçirelim.</h2>
-    <p class="cta-sub">Akademik çalışmalarınızı veya sanat eserlerinizi sergimizde yer almak için başvurun.</p>
-    <div class="btn-row"><a href="iletisim.html" class="btn-primary">Başvuru Yapın</a><a href="kongreler.html" class="btn-outline">Kongrelerimiz</a></div>
+<section class="section">
+  <div class="wrap">
+    <div class="cta reveal">
+      <span class="eyebrow"><span data-l="tr">Katılın</span><span data-l="en">Join Us</span></span>
+      <h2 class="h-lg"><span data-l="tr">Serginizi <em>birlikte</em> hayata geçirelim.</span><span data-l="en">Let's bring your exhibition to life <em>together</em>.</span></h2>
+      <p class="lead"><span data-l="tr">Akademik çalışmalarınızı veya sanat eserlerinizi sergimizde yer almak için başvurun.</span><span data-l="en">Apply to have your academic work or artworks featured in our exhibition.</span></p>
+      <div class="row">
+        <a href="iletisim.html" class="btn btn-primary" data-magnetic><span data-l="tr">Başvuru Yapın</span><span data-l="en">Apply</span><svg><use href="#i-arrow"/></svg></a>
+        <a href="kongreler.html" class="btn btn-ghost"><span data-l="tr">Kongrelerimiz</span><span data-l="en">Our Congresses</span></a>
+      </div>
+    </div>
   </div>
 </section>
+</main>
 
-<footer>
-  <div class="footer-top">
-    <div><div class="footer-brand-name">Holistence</div><div class="footer-brand-sub">Academy</div><p class="footer-desc">Akademik dünyada kaliteli yayıncılık, etkinlik ve sergi organizasyonu.</p></div>
-    <div class="footer-col"><h5>Hizmetler</h5><ul><li><a href="hizmetler.html">Dergi Yönetimi</a></li><li><a href="hizmetler.html">Etkinlik Org.</a></li><li><a href="hizmetler.html">Danışmanlık</a></li></ul></div>
-    <div class="footer-col"><h5>Kurumsal</h5><ul><li><a href="kurumsal.html">Hakkımızda</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="iletisim.html">İletişim</a></li></ul></div>
-    <div class="footer-col"><h5>Etkinlikler</h5><ul><li><a href="kongreler.html">Kongreler</a></li><li><a href="sergiler.html">Sergiler</a></li></ul></div>
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <img src="assets/img/logo-ha.png" alt="Holistence Academy" width="64" height="60" loading="lazy">
+        <p><span data-l="tr">2016 yılından bu yana Ar-Ge, Yazılım, Uluslararası Yayıncılık, Akademik Etkinlik ve Danışmanlık alanlarında bütünsel hizmetler.</span><span data-l="en">Since 2016, providing holistic services in R&amp;D, Software, International Publishing, Academic Events and Consulting.</span></p>
+        <div class="f-legal">
+          <span data-l="tr">Vergi Dairesi: Çanakkale — Vergi No: 7340893534</span><span data-l="en">Tax Office: Çanakkale — Tax ID: 7340893534</span><br>
+          <span data-l="tr">Sertifika No: 51372</span><span data-l="en">Certificate No: 51372</span>
+        </div>
+      </div>
+      <div class="f-col"><h4><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></h4><ul>
+        <li><a href="hizmetler.html"><span data-l="tr">Tüm Hizmetler</span><span data-l="en">All Services</span></a></li>
+        <li><a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
+        <li><a href="https://publications.holistence.com/" target="_blank" rel="noopener"><span data-l="tr">Yayıncılık</span><span data-l="en">Publishing</span></a></li>
+        <li><a href="https://journals.gen.tr/" target="_blank" rel="noopener"><span data-l="tr">Akademik Dergiler</span><span data-l="en">Academic Journals</span></a></li>
+      </ul></div>
+      <div class="f-col"><h4><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></h4><ul>
+        <li><a href="etkinlikler.html"><span data-l="tr">Bilimsel Etkinlikler</span><span data-l="en">Scientific Events</span></a></li>
+        <li><a href="kongreler.html"><span data-l="tr">Kongreler</span><span data-l="en">Congresses</span></a></li>
+        <li><a href="sergiler.html"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></a></li>
+        <li><a href="https://events.holistence.com/" target="_blank" rel="noopener"><span data-l="tr">Events Platformu</span><span data-l="en">Events Platform</span></a></li>
+      </ul></div>
+      <div class="f-col"><h4><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></h4><ul>
+        <li><a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About Us</span></a></li>
+        <li><a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a></li>
+        <li><a href="kurumsal.html"><span data-l="tr">Kurumsal Kimlik</span><span data-l="en">Corporate Identity</span></a></li>
+        <li><a href="iletisim.html"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a></li>
+      </ul></div>
+    </div>
+    <div class="f-bottom">
+      <p>© 2016–<span data-year>2026</span> <strong>Holistence Academy</strong>. <span data-l="tr">Tüm Hakları Saklıdır.</span><span data-l="en">All Rights Reserved.</span></p>
+      <p><span data-l="tr">Çanakkale Onsekiz Mart Üniversitesi Teknopark · Çanakkale / Türkiye</span><span data-l="en">Çanakkale Onsekiz Mart University Technopark · Çanakkale / Turkey</span></p>
+    </div>
   </div>
-  <div class="footer-bottom"><p>© 2025 <strong>Holistence Academy</strong>. Tüm hakları saklıdır.</p></div>
+  <div class="f-word" aria-hidden="true">Holistence</div>
 </footer>
-<script>
-function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');}
-const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
+
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
