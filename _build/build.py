@@ -14,12 +14,17 @@ Her sayfa dosyası başında şu bilgi bloğunu taşır:
 title_tr: Sayfa başlığı
 title_en: Page title
 desc: Arama motoru açıklaması
-extra: globe        (isteğe bağlı: globe | gallery)
+extra: network      (isteğe bağlı: network | gallery)
 -->
 """
 import html
 import os
 import re
+import time
+
+# Önbellek kırıcı: her üretimde değişir; iç linklere ?v=… eklenir ki
+# tarayıcı/sunucu eski kopyayı göstermesin.
+VER = time.strftime('%y%m%d%H%M')
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 B = os.path.join(ROOT, '_build')
@@ -50,9 +55,8 @@ HEAD = '''<!DOCTYPE html>
 
 SCRIPTS = {
     None: '',
-    'globe': '<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>\n'
-             '<script src="assets/js/land-dots.js" defer></script>\n'
-             '<script src="assets/js/hero-globe.js" defer></script>\n',
+    'network': '<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>\n'
+             '<script src="assets/js/hero-network.js" defer></script>\n',
     'gallery': '<script src="assets/js/gallery.js" defer></script>\n',
 }
 
@@ -102,6 +106,8 @@ def main():
         out += '<script src="assets/js/main.js" defer></script>\n'
         out += SCRIPTS[d.get('extra') or None]
         out += '</body>\n</html>\n'
+        out = re.sub(r'(href|src)="((?!https?:|mailto:|tel:|#|data:)[^"?#]+\.(?:html|css|js))"', r'\1="\2?v=' + VER + '"', out)
+        out = out.replace('href="./"', 'href="./?v=' + VER + '"')
         open(os.path.join(ROOT, name), 'w', encoding='utf-8').write(out)
         print('yazıldı:', name, f'{len(out)/1024:.1f} KB')
 

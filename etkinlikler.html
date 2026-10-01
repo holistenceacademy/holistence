@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/main.css?v=2610012157">
 </head>
 <body>
 <!-- İkon seti -->
@@ -44,6 +44,14 @@
     <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
     <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3-3 3 3"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H5a2 2 0 0 1 0-4h13v4"/><path d="M3 5v14a2 2 0 0 0 2 2h15V7"/><path d="M16 14h.01"/></symbol>
+    <symbol id="i-form" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></symbol>
   </defs>
 </svg>
 
@@ -52,26 +60,18 @@
 <!-- ============ NAVİGASYON ============ -->
 <header class="nav" id="top">
   <div class="wrap nav-in">
-    <a href="index.html" class="brand" aria-label="Holistence Academy">
+    <a href="./?v=2610012157" class="brand" aria-label="Holistence Academy">
       <img src="assets/img/logo-ha.png" alt="" width="47" height="44">
       <span class="brand-txt">Holistence<small>ACADEMY</small></span>
     </a>
     <nav aria-label="Ana menü">
       <ul class="menu">
-        <li><a href="index.html"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a></li>
-        <li><a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About</span></a></li>
-        <li><a href="hizmetler.html"><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></a></li>
-        <li><a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
-        <li class="has-sub">
-          <button type="button" aria-expanded="false"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span><svg class="chev"><use href="#i-chev"/></svg></button>
-          <div class="sub">
-            <a href="etkinlikler.html" aria-current="page"><span data-l="tr">Tüm Etkinlikler</span><span data-l="en">All Events</span></a>
-            <a href="kongreler.html"><span data-l="tr">Kongreler</span><span data-l="en">Congresses</span></a>
-            <a href="sergiler.html"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></a>
-          </div>
-        </li>
-        <li><a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a></li>
-        <li><a href="kurumsal.html"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a></li>
+        <li><a href="./?v=2610012157"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a></li>
+        <li><a href="about.html?v=2610012157"><span data-l="tr">Hakkımızda</span><span data-l="en">About</span></a></li>
+        <li><a href="hizmetler.html?v=2610012157"><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></a></li>
+        <li><a href="yazilimlar.html?v=2610012157"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
+        <li><a href="etkinlikler.html?v=2610012157" aria-current="page"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></a></li>
+        <li><a href="kurumsal.html?v=2610012157"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a></li>
       </ul>
     </nav>
     <div class="nav-actions">
@@ -79,7 +79,7 @@
         <button type="button" data-set-lang="tr" aria-pressed="true">TR</button>
         <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
-      <a href="iletisim.html" class="btn btn-primary" data-magnetic><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
+      <a href="iletisim.html?v=2610012157" class="btn btn-primary" data-magnetic><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
       <button class="burger" type="button" aria-label="Menü" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -90,23 +90,20 @@
     <button type="button" data-set-lang="tr" aria-pressed="true">TR</button>
     <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
   </div>
-  <a href="index.html"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a>
-  <a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About</span></a>
-  <a href="hizmetler.html"><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></a>
-  <a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a>
-  <a href="etkinlikler.html" aria-current="page"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></a>
-  <a class="child" href="kongreler.html"><span data-l="tr">↳ Kongreler</span><span data-l="en">↳ Congresses</span></a>
-  <a class="child" href="sergiler.html"><span data-l="tr">↳ Sergiler</span><span data-l="en">↳ Exhibitions</span></a>
-  <a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a>
-  <a href="kurumsal.html"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a>
-  <a href="iletisim.html"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
+  <a href="./?v=2610012157"><span data-l="tr">Anasayfa</span><span data-l="en">Home</span></a>
+  <a href="about.html?v=2610012157"><span data-l="tr">Hakkımızda</span><span data-l="en">About</span></a>
+  <a href="hizmetler.html?v=2610012157"><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></a>
+  <a href="yazilimlar.html?v=2610012157"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a>
+  <a href="etkinlikler.html?v=2610012157" aria-current="page"><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></a>
+  <a href="kurumsal.html?v=2610012157"><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></a>
+  <a href="iletisim.html?v=2610012157"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
 </div>
 
 <main id="main">
 
 <section class="page-hero">
   <div class="wrap">
-    <div class="crumb"><a href="index.html">Holistence Academy</a><i></i><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></div>
+    <div class="crumb"><a href="./?v=2610012157">Holistence Academy</a><i></i><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></div>
     <h1><span data-l="tr">Etkinlik <em>yönetimi</em></span><span data-l="en">Event <em>management</em></span></h1>
     <p class="lead"><span data-l="tr">Bilimsel etkinlik, kongre ve sergi hizmetlerimizi planlama, koordinasyon ve görünürlük odağında sunuyoruz.</span><span data-l="en">We deliver scientific event, congress and exhibition services with a focus on planning, coordination and visibility.</span></p>
   </div>
@@ -127,18 +124,17 @@
         <p><span data-l="tr">Sempozyum, çalıştay ve konferansların içerik, kayıt, iletişim ve akış planlaması.</span><span data-l="en">Content, registration, communication and flow planning for symposiums, workshops and conferences.</span></p>
         <span class="card-go">events.holistence.com<svg><use href="#i-out"/></svg></span>
       </a>
-      <a href="kongreler.html" class="card reveal d1">
+      <a href="https://holivent.com/" target="_blank" rel="noopener" class="card reveal d1">
         <span class="card-ic"><svg><use href="#i-cap"/></svg></span>
         <h3><span data-l="tr">Kongre yönetimi</span><span data-l="en">Congress management</span></h3>
         <p><span data-l="tr">Ulusal ve uluslararası kongrelerde dijital altyapı, marka dili ve operasyonel koordinasyon.</span><span data-l="en">Digital infrastructure, brand language and operational coordination for national and international congresses.</span></p>
-        <span class="card-go"><span data-l="tr">Kongreler</span><span data-l="en">Congresses</span><svg><use href="#i-arrow"/></svg></span>
+        <span class="card-go">Holivent<svg><use href="#i-out"/></svg></span>
       </a>
-      <a href="sergiler.html" class="card reveal d2">
+      <article class="card reveal d2">
         <span class="card-ic"><svg><use href="#i-image"/></svg></span>
         <h3><span data-l="tr">Sergi kurgusu</span><span data-l="en">Exhibition setup</span></h3>
         <p><span data-l="tr">Fiziksel ve dijital sergiler için mekânsal kurgu, tanıtım akışı ve içerik yönetimi.</span><span data-l="en">Spatial setup, promotional flow and content management for physical and digital exhibitions.</span></p>
-        <span class="card-go"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span><svg><use href="#i-arrow"/></svg></span>
-      </a>
+      </article>
     </div>
   </div>
 </section>
@@ -169,7 +165,7 @@
     </div>
     <div class="feat c3">
       <a href="https://events.holistence.com/" target="_blank" rel="noopener" class="reveal"><b>01</b><h3>Holistence Events</h3><p>events.holistence.com</p></a>
-      <a href="https://conferman.com/" target="_blank" rel="noopener" class="reveal d1"><b>02</b><h3>Conferman</h3><p><span data-l="tr">Akademik etkinlik yönetimini kolaylaştıran profesyonel kongre yazılımı.</span><span data-l="en">Professional congress management software for academic events.</span></p></a>
+      <a href="https://holivent.com/" target="_blank" rel="noopener" class="reveal d1"><b>02</b><h3>Holivent</h3><p><span data-l="tr">Kendi geliştirdiğimiz akademik etkinlik yönetim yazılımı.</span><span data-l="en">Our in-house academic event management software.</span></p></a>
       <a href="https://idacampus.com/" target="_blank" rel="noopener" class="reveal d2"><b>03</b><h3>IDA Campus</h3><p><span data-l="tr">Uzaktan eğitim ve online etkinlik hizmetleri.</span><span data-l="en">Distance learning and online event services.</span></p></a>
     </div>
   </div>
@@ -181,8 +177,8 @@
       <span class="eyebrow"><span data-l="tr">Etkinliğinizi planlayalım</span><span data-l="en">Let's plan your event</span></span>
       <h2 class="h-lg"><span data-l="tr">Kongre, sempozyum veya serginiz için <em>bize ulaşın.</em></span><span data-l="en"><em>Contact us</em> for your congress, symposium or exhibition.</span></h2>
       <div class="row">
-        <a href="iletisim.html" class="btn btn-primary" data-magnetic><span data-l="tr">İletişim</span><span data-l="en">Contact</span><svg><use href="#i-arrow"/></svg></a>
-        <a href="hizmetler.html" class="btn btn-ghost"><span data-l="tr">Organizasyon Hizmetleri</span><span data-l="en">Organization Services</span></a>
+        <a href="iletisim.html?v=2610012157" class="btn btn-primary" data-magnetic><span data-l="tr">İletişim</span><span data-l="en">Contact</span><svg><use href="#i-arrow"/></svg></a>
+        <a href="hizmetler.html?v=2610012157" class="btn btn-ghost"><span data-l="tr">Organizasyon Hizmetleri</span><span data-l="en">Organization Services</span></a>
       </div>
     </div>
   </div>
@@ -196,38 +192,41 @@
       <div class="f-brand">
         <img src="assets/img/logo-ha.png" alt="Holistence Academy" width="64" height="60" loading="lazy">
         <p><span data-l="tr">2016 yılından bu yana Ar-Ge, Yazılım, Uluslararası Yayıncılık, Akademik Etkinlik ve Danışmanlık alanlarında bütünsel hizmetler.</span><span data-l="en">Since 2016, providing holistic services in R&amp;D, Software, International Publishing, Academic Events and Consulting.</span></p>
+        <div class="f-contact">
+          <a href="https://wa.me/905554770066" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg>WhatsApp: +90 555 477 00 66</a>
+          <a href="mailto:contact@holistence.com"><svg><use href="#i-mail"/></svg>contact@holistence.com</a>
+          <a href="https://maps.app.goo.gl/2Qw2NJrvZNrm7w578" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg><span data-l="tr">Namık Kemal Mahallesi, Helvacıoğlu Sokak,<br>Han Evleri 19-21/A, Apt:1<br>17000 Çanakkale / Türkiye</span><span data-l="en">Namık Kemal District, Helvacıoğlu Street,<br>Han Evleri 19-21/A, Apt:1<br>17000 Çanakkale / Türkiye</span></a>
+        </div>
         <div class="f-legal">
           <span data-l="tr">Vergi Dairesi: Çanakkale — Vergi No: 7340893534</span><span data-l="en">Tax Office: Çanakkale — Tax ID: 7340893534</span><br>
           <span data-l="tr">Sertifika No: 51372</span><span data-l="en">Certificate No: 51372</span>
         </div>
       </div>
       <div class="f-col"><h4><span data-l="tr">Hizmetler</span><span data-l="en">Services</span></h4><ul>
-        <li><a href="hizmetler.html"><span data-l="tr">Tüm Hizmetler</span><span data-l="en">All Services</span></a></li>
-        <li><a href="yazilimlar.html"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
+        <li><a href="hizmetler.html?v=2610012157"><span data-l="tr">Tüm Hizmetler</span><span data-l="en">All Services</span></a></li>
+        <li><a href="yazilimlar.html?v=2610012157"><span data-l="tr">Yazılımlar</span><span data-l="en">Software</span></a></li>
         <li><a href="https://publications.holistence.com/" target="_blank" rel="noopener"><span data-l="tr">Yayıncılık</span><span data-l="en">Publishing</span></a></li>
         <li><a href="https://journals.gen.tr/" target="_blank" rel="noopener"><span data-l="tr">Akademik Dergiler</span><span data-l="en">Academic Journals</span></a></li>
       </ul></div>
       <div class="f-col"><h4><span data-l="tr">Etkinlikler</span><span data-l="en">Events</span></h4><ul>
-        <li><a href="etkinlikler.html"><span data-l="tr">Bilimsel Etkinlikler</span><span data-l="en">Scientific Events</span></a></li>
-        <li><a href="kongreler.html"><span data-l="tr">Kongreler</span><span data-l="en">Congresses</span></a></li>
-        <li><a href="sergiler.html"><span data-l="tr">Sergiler</span><span data-l="en">Exhibitions</span></a></li>
+        <li><a href="etkinlikler.html?v=2610012157"><span data-l="tr">Bilimsel Etkinlikler</span><span data-l="en">Scientific Events</span></a></li>
         <li><a href="https://events.holistence.com/" target="_blank" rel="noopener"><span data-l="tr">Events Platformu</span><span data-l="en">Events Platform</span></a></li>
+        <li><a href="https://holivent.com/" target="_blank" rel="noopener">Holivent</a></li>
       </ul></div>
       <div class="f-col"><h4><span data-l="tr">Kurumsal</span><span data-l="en">Corporate</span></h4><ul>
-        <li><a href="about.html"><span data-l="tr">Hakkımızda</span><span data-l="en">About Us</span></a></li>
-        <li><a href="galeri.html"><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></a></li>
-        <li><a href="kurumsal.html"><span data-l="tr">Kurumsal Kimlik</span><span data-l="en">Corporate Identity</span></a></li>
-        <li><a href="iletisim.html"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a></li>
+        <li><a href="about.html?v=2610012157"><span data-l="tr">Hakkımızda</span><span data-l="en">About Us</span></a></li>
+        <li><a href="kurumsal.html?v=2610012157"><span data-l="tr">Kurumsal Kimlik</span><span data-l="en">Corporate Identity</span></a></li>
+        <li><a href="iletisim.html?v=2610012157"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a></li>
       </ul></div>
     </div>
     <div class="f-bottom">
       <p>© 2016–<span data-year>2026</span> <strong>Holistence Academy</strong>. <span data-l="tr">Tüm Hakları Saklıdır.</span><span data-l="en">All Rights Reserved.</span></p>
-      <p><span data-l="tr">Çanakkale Onsekiz Mart Üniversitesi Teknopark · Çanakkale / Türkiye</span><span data-l="en">Çanakkale Onsekiz Mart University Technopark · Çanakkale / Turkey</span></p>
+      <p><span data-l="tr">Namık Kemal Mahallesi, Helvacıoğlu Sokak, Han Evleri 19-21/A, Apt:1, 17000 Çanakkale / Türkiye</span><span data-l="en">Namık Kemal District, Helvacıoğlu Street, Han Evleri 19-21/A, Apt:1, 17000 Çanakkale / Türkiye</span></p>
     </div>
   </div>
   <div class="f-word" aria-hidden="true">Holistence</div>
 </footer>
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=2610012157" defer></script>
 </body>
 </html>
